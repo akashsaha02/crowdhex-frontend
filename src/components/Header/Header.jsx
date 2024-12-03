@@ -27,15 +27,39 @@ const Header = () => {
       >
         All Campaigns
       </NavLink>
-      <NavLink
-        to="/help"
-        className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
-          }`
-        }
-      >
-        How to Help?
-      </NavLink>
+      {user && (
+        <NavLink
+          to="/add-campaign"
+          className={({ isActive }) =>
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+            }`
+          }
+        >
+          Add Campaign
+        </NavLink>
+      )}
+      {user && (
+        <NavLink
+          to="/my-campaigns"
+          className={({ isActive }) =>
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+            }`
+          }
+        >
+          My Campaigns
+        </NavLink>
+      )}
+      {user && (
+        <NavLink
+          to="/my-donations"
+          className={({ isActive }) =>
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+            }`
+          }
+        >
+          My Donations
+        </NavLink>
+      )}
       {user && (
         <NavLink
           to="/profile"

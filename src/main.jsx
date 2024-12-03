@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         element: <CampaignDetailsPage />
       },
       {
-        path:'/my-donation',
+        path:'/my-donations',
         element: <MyDonationPage />
       }
     ]
