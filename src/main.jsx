@@ -10,6 +10,11 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import AuthProvider from './providers/AuthProvider'
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage'
 import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
+import CampaignsPage from './pages/CampaignsPage/CampaignsPage'
+import CampaignDetailsPage from './pages/CampaignDetailsPage/CampaignDetailsPage';
+import MyCampaignPage from './pages/MyCampaignPage/MyCampaignPage';
+import AddCampaignPage from './pages/AddCampaignPage/AddCampaignPage';
+import MyDonationPage from './pages/MyDonationPage/MyDonationPage';
 
 const router = createBrowserRouter([
   {
@@ -28,15 +33,38 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <RegisterPage />
-      }, {
+      },
+      {
         path: '/profile',
         element: <MyProfilePage />
-      },{
+      },
+      {
         path: '/update-profile',
         element: <UpdateProfilePage />
-      },{
-        path:'/campaigns',
+      },
+      {
+        path: '/campaigns',
         element: <CampaignsPage />
+      },
+      {
+        path: '/campaigns/:id',
+        element: <CampaignDetailsPage />
+      },
+      {
+        path: '/add-campaign',
+        element: <AddCampaignPage />
+      },
+      {
+        path: '/my-campaigns',
+        element: <MyCampaignPage />
+      },
+      {
+        path: '/my-campaigns/:id',
+        element: <CampaignDetailsPage />
+      },
+      {
+        path:'/my-donation',
+        element: <MyDonationPage />
       }
     ]
   },
