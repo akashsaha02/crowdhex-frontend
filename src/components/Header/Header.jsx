@@ -19,13 +19,13 @@ const Header = () => {
         Home
       </NavLink>
       <NavLink
-        to="/donation-campaigns"
+        to="/campaigns"
         className={({ isActive }) =>
           `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
           }`
         }
       >
-        Donation Campaigns
+        All Campaigns
       </NavLink>
       <NavLink
         to="/help"
@@ -52,7 +52,7 @@ const Header = () => {
 
 
   return (
-    <div className='bg-white sticky top-0 z-50 shadow-md py-2'>
+    <div className='bg-white sticky top-0 z-10 shadow-md py-2'>
       <div className="navbar max-w-[1440px] mx-auto">
         <div className="navbar-start items-center">
           <div className="dropdown">

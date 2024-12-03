@@ -1,20 +1,43 @@
-import { useContext } from 'react'
-import { AuthContext } from '../../providers/AuthProvider'
-import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import toast from 'react-hot-toast';
+import { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 const MyProfilePage = () => {
     const { logoutUser, user } = useContext(AuthContext);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [displayName, setDisplayName] = useState(user?.displayName || "");
+    const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
     const navigate = useNavigate();
+
     const handleLogout = async () => {
         try {
             await logoutUser();
-            toast.success('Logged out successfully!');
-            navigate('/');
+            toast.success("Logged out successfully!");
+            navigate("/");
+        } catch {
+            toast.error("Error logging out!");
+        }
+    };
 
-        } catch (error) {
-            toast.error('Error logging out!', error);
+    const handleUpdateProfile = async (e) => {
+        e.preventDefault();
+        if (!user) {
+            toast.error("User not authenticated.");
+            return;
+        }
+
+        try {
+            await updateProfile(user, {
+                displayName: displayName.trim(),
+                photoURL: photoURL.trim(),
+            });
+            toast.success("Profile updated successfully!");
+            setIsModalOpen(false);
+        } catch {
+            toast.error("Failed to update profile. Please try again.");
         }
     };
 
@@ -23,7 +46,7 @@ const MyProfilePage = () => {
             <Helmet>
                 <title>WinterSoul | Dashboard</title>
             </Helmet>
-            {/* Banner Section */}
+            {/* Profile Section */}
             <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
                 <div className="">
                     <div className="h-24 bg-gradient-to-r from-blue-500 to-purple-600"></div>
@@ -43,7 +66,7 @@ const MyProfilePage = () => {
                     <div className="flex justify-center mt-4 space-x-4">
                         <button
                             className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700"
-                            onClick={() => navigate("/update-profile")}
+                            onClick={() => setIsModalOpen(true)}
                         >
                             Edit Profile
                         </button>
@@ -56,8 +79,52 @@ const MyProfilePage = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
 
-export default MyProfilePage
+            {/* Update Profile Modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+                        <h2 className="text-lg font-semibold mb-4 text-center">Update Profile</h2>
+                        <form onSubmit={handleUpdateProfile}>
+                            <div className="mb-3">
+                                <input
+                                    type="text"
+                                    placeholder="Display Name"
+                                    value={user.displayName}
+                                    onChange={(e) => setDisplayName(e.target.value)}
+                                    className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400"
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <input
+                                    type="text"
+                                    placeholder="Photo URL"
+                                    value={user.photoURL}
+                                    onChange={(e) => setPhotoURL(e.target.value)}
+                                    className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400"
+                                />
+                            </div>
+                            <div className="flex gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setIsModalOpen(false)}
+                                    className="w-full py-2 bg-gray-200 rounded hover:bg-gray-300"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                                >
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default MyProfilePage;
