@@ -28,7 +28,7 @@ const LoginPage = () => {
             toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
-            toast.error('Error logging in!');
+            toast.error('Error logging in!', error);
         }
     };
 
@@ -38,7 +38,7 @@ const LoginPage = () => {
             toast.success('Logged in successfully with Google!');
             navigate('/');
         } catch (error) {
-            toast.error('Error logging in with Google!');
+            toast.error('Error logging in with Google!', error);
         }
     }
 
@@ -49,7 +49,7 @@ const LoginPage = () => {
             navigate('/');
 
         } catch (error) {
-            toast.error('Error logging out!');
+            toast.error('Error logging out!', error);
         }
     };
 

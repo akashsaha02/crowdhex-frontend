@@ -8,6 +8,8 @@ import HomePage from './pages/HomePage/HomePage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
 import AuthProvider from './providers/AuthProvider'
+import MyProfilePage from './pages/MyProfilePage/MyProfilePage'
+import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,12 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <RegisterPage />
+      }, {
+        path: '/profile',
+        element: <MyProfilePage />
+      },{
+        path: '/update-profile',
+        element: <UpdateProfilePage />
       }
     ]
   },
