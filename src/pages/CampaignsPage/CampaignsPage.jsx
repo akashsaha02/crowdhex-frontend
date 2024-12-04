@@ -46,7 +46,7 @@ const CampaignsPage = () => {
                 {campaign.description}
               </p>
               <Link
-                to={`/campaign/${campaign.id}`}
+                to={`/campaigns/${campaign._id}`}
                 className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
               >
                 Learn More
