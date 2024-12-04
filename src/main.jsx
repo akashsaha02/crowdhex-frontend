@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import axios from 'axios'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
@@ -16,6 +15,7 @@ import CampaignDetailsPage from './pages/CampaignDetailsPage/CampaignDetailsPage
 import MyCampaignPage from './pages/MyCampaignPage/MyCampaignPage';
 import AddCampaignPage from './pages/AddCampaignPage/AddCampaignPage';
 import MyDonationPage from './pages/MyDonationPage/MyDonationPage';
+import PrivateRoute from './routes/PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -37,11 +37,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <MyProfilePage />
+        element: <PrivateRoute>
+          <MyProfilePage />
+        </PrivateRoute>
       },
       {
         path: '/update-profile',
-        element: <UpdateProfilePage />
+        element: <PrivateRoute>
+          <UpdateProfilePage />
+        </PrivateRoute>
       },
       {
         path: '/campaigns',
@@ -49,23 +53,33 @@ const router = createBrowserRouter([
       },
       {
         path: '/campaigns/:id',
-        element: <CampaignDetailsPage />
+        element: <PrivateRoute>
+          <CampaignDetailsPage />
+        </PrivateRoute>
       },
       {
         path: '/add-campaign',
-        element: <AddCampaignPage />
+        element: <PrivateRoute>
+          <AddCampaignPage />
+        </PrivateRoute>
       },
       {
         path: '/my-campaigns',
-        element: <MyCampaignPage />,
+        element: <PrivateRoute>
+          <MyCampaignPage />,
+        </PrivateRoute>
       },
       {
         path: '/my-campaigns/:id',
-        element: <CampaignDetailsPage />,
+        element: <PrivateRoute>
+          <CampaignDetailsPage />,
+        </PrivateRoute>
       },
       {
-        path:'/my-donations',
-        element: <MyDonationPage />
+        path: '/my-donations',
+        element: <PrivateRoute>
+          <MyDonationPage />
+        </PrivateRoute>
       }
     ]
   },
