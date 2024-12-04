@@ -31,7 +31,7 @@ const AddCampaignPage = () => {
 
     // Backend integration: Send data to your API or database
     try {
-      const response = await axios.post("http://localhost:3008/campaigns", {
+      const response = await axios.post("http://localhost:3000/campaigns", {
         ...formData,
         userEmail: user.email,
         userName: user.displayName,

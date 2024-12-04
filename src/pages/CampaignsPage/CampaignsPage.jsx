@@ -8,7 +8,7 @@ const CampaignsPage = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3008/campaigns")
+    axios.get("http://localhost:3000/campaigns")
       .then(response => {
         setCampaigns(response.data);
       })

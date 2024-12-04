@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/my-campaigns/:id',
-        element: <CampaignDetailsPage />
+        element: <CampaignDetailsPage />,
       },
       {
         path:'/my-donations',
