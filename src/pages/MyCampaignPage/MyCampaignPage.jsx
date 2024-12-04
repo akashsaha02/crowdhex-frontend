@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { update } from './../../../node_modules/sweetalert2/src/instanceMethods/update';
 
 const MyCampaignPage = () => {
 
@@ -11,20 +10,19 @@ const MyCampaignPage = () => {
 
   const email = user.email;
 
+
   useEffect(() => {
     axios.get(`http://localhost:3000/campaigns`)
       .then(response => {
-        // response.data.filter((item) => {
-        //   item.email === email ? setCampaigns(item) : null
-        // })
-        setCampaigns(response.data.filter((item) => item.email !== email))
+        const receivedData = response.data.filter(item => item.userEmail === email);
+        setCampaigns(receivedData)
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
       });
   }, [email]);
 
-  console.log(campaigns)
+  // console.log(campaigns)
 
 
   return (
