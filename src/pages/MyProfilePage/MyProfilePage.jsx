@@ -44,7 +44,7 @@ const MyProfilePage = () => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center py-8">
             <Helmet>
-                <title>WinterSoul | Dashboard</title>
+                <title>CrowdHex | Dashboard</title>
             </Helmet>
             {/* Profile Section */}
             <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">

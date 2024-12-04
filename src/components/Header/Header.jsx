@@ -105,10 +105,10 @@ const Header = () => {
           </div>
           <h2
             onClick={() => navigate("/")}
-            className="text-xl md:text-3xl font-bold cursor-pointer flex items-center gap-2"
+            className="text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer flex items-center gap-2"
           >
             {/* <span className=""><img className='w-10 h-10' src={logo} alt=""/></span> */}
-            WinterSoul
+            CrowdHex
           </h2>
         </div>
         <div className="navbar-center hidden lg:flex">

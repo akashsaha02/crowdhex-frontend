@@ -56,7 +56,7 @@ const LoginPage = () => {
     return (
         <div className="flex items-center justify-center min-h-screen my-6">
             <Helmet>
-                <title>WinterSoul | Login</title>
+                <title>CrowdHex | Login</title>
             </Helmet>
             <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
                 {user ? (
