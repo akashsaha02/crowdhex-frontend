@@ -5,12 +5,18 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const CampaignDetailsPage = () => {
-
   const { user } = useContext(AuthContext);
   const p = useParams();
   const [campaignDetails, setCampaignDetails] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [donationAmount, setDonationAmount] = useState("");
+
+  // Check if the campaign is expired
+  const isCampaignExpired = () => {
+    const currentDate = new Date();
+    const deadlineDate = new Date(campaignDetails.deadline);
+    return currentDate > deadlineDate;
+  };
 
   useEffect(() => {
     axios
@@ -24,6 +30,15 @@ const CampaignDetailsPage = () => {
   }, [p.id]);
 
   const handleDonate = async () => {
+    if (isCampaignExpired()) {
+      Swal.fire(
+        "Campaign Ended",
+        "Sorry, this campaign has already ended. Donations are no longer accepted.",
+        "info"
+      );
+      return;
+    }
+
     if (!user) {
       Swal.fire("Error", "You must be logged in to donate.", "error");
       return;
@@ -63,7 +78,7 @@ const CampaignDetailsPage = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 px-4 py-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-3xl mx-auto mt-10 px-4 py-6 bg-white rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold text-blue-600 text-center mb-6">Campaign Details</h1>
       {campaignDetails ? (
         <div>
@@ -71,30 +86,48 @@ const CampaignDetailsPage = () => {
           <img
             src={campaignDetails.image}
             alt={campaignDetails.title}
-            className="w-full rounded-lg mb-4"
+            className="w-full rounded-lg mb-4 shadow-md"
           />
           <h2 className="text-2xl font-semibold">{campaignDetails.title}</h2>
           <p className="text-gray-700 mt-2">{campaignDetails.description}</p>
-          <p className="text-gray-500 mt-2">
+
+          {/* Additional Details */}
+          <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+            <p className="text-gray-600 capitalize">
+              <span className="font-semibold">Category:</span> {campaignDetails.type}
+            </p>
+            <p className="text-gray-600">
+              <span className="font-semibold">Minimum Donation:</span> ${campaignDetails.minDonation}</p>
+            <p className="text-gray-600">
+              <span className="font-semibold">Deadline:</span>{" "}
+              {new Date(campaignDetails.deadline).toLocaleDateString()}
+            </p>
+          </div>
+
+          {/* Created By */}
+          <p className="text-gray-500 mt-4">
             Created by: <strong>{campaignDetails.userName}</strong>
           </p>
           <p className="text-gray-500">
             Email: <strong>{campaignDetails.userEmail}</strong>
           </p>
-          <p className="text-gray-500 mt-2">
-            Minimum Donation: <strong>${campaignDetails.minDonation}</strong>
-          </p>
-          <p className="text-gray-500">
-            Deadline: <strong>{new Date(campaignDetails.deadline).toLocaleDateString()}</strong>
-          </p>
+
+          {/* Show if the campaign is expired */}
+          {isCampaignExpired() && (
+            <p className="text-red-600 mt-4 font-semibold">
+              This campaign has ended and no longer accepts donations.
+            </p>
+          )}
 
           {/* Donate Button */}
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="mt-6 px-4 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 focus:outline-none"
-          >
-            Donate
-          </button>
+          {!isCampaignExpired() && (
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="mt-6 px-4 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 focus:outline-none"
+            >
+              Donate
+            </button>
+          )}
         </div>
       ) : (
         <p className="text-center text-gray-500">Loading...</p>
