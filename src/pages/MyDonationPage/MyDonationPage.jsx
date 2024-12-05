@@ -1,63 +1,122 @@
-import { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../providers/AuthProvider'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { useContext, useEffect, useState, useMemo } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import axios from "axios";
+import { useReactTable, getCoreRowModel } from "@tanstack/react-table";
+
 const MyDonationPage = () => {
   const { user } = useContext(AuthContext);
   const [donations, setDonations] = useState([]);
-
-  const email = user.email;
+  const email = user?.email;
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/donations`)
-      .then(response => {
-        const receivedData = response.data.filter(item => item.userEmail === email);
-        setDonations(receivedData)
+    axios
+      .get(`http://localhost:3000/donations`)
+      .then((response) => {
+        const receivedData = response.data.filter(
+          (item) => item.userEmail === email
+        );
+        setDonations(receivedData);
       })
-      .catch(error => {
-        console.error('Error fetching data: ', error);
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
       });
   }, [email]);
 
+  // Define table columns
+  const columns = useMemo(
+    () => [
+      {
+        accessorKey: "campaignTitle",
+        header: "Campaign Title",
+      },
+      {
+        accessorKey: "donationAmount",
+        header: "Donation Amount",
+        cell: ({ getValue }) => `$${getValue().toFixed(2)}`,
+      },
+      {
+        accessorKey: "donationDate",
+        header: "Donation Date",
+        cell: ({ getValue }) =>
+          new Date(getValue()).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          }),
+      },
+      {
+        accessorKey: "userEmail",
+        header: "Email",
+      },
+      {
+        accessorKey: "userName",
+        header: "Donor Name",
+      },
+    ],
+    []
+  );
+
+  const table = useReactTable({
+    data: donations,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
   return (
-    <div>
-      <section className="py-16 px-6">
-        <h2 className="text-3xl font-semibold text-center text-gray-800">
+    <div className="min-h-screen bg-gray-100 py-10">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">
           My Donations
         </h2>
-        <p className="text-center text-gray-600 mt-2">
-          Explore and support the active donations.
+        <p className="text-lg text-gray-600 text-center mb-10">
+          A record of all the campaigns you have contributed to.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {donations.map((donation) => (
-            <div
-              key={donation.id}
-              className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition"
-            >
-              <img
-                src={donation.image}
-                alt={donation.title}
-                className="w-full h-48 object-cover rounded-t-lg"
-              />
-              <h3 className="text-xl font-semibold mt-4">
-                {donation.title}
-              </h3>
-              <p className="text-gray-600 mt-2">
-                {donation.description}
-              </p>
-              <Link
-                to={`/donations/${donation._id}`}
-                className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
 
+        {donations.length > 0 ? (
+          <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+            <table className="min-w-full table-auto border-collapse border border-gray-200">
+              <thead className="bg-gray-100">
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <tr key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => (
+                      <th
+                        key={header.id}
+                        className="border border-gray-200 px-4 py-2 text-left text-gray-700 font-semibold"
+                      >
+                        {header.isPlaceholder
+                          ? null
+                          : header.column.columnDef.header}
+                      </th>
+                    ))}
+                  </tr>
+                ))}
+              </thead>
+              <tbody>
+                {table.getRowModel().rows.map((row) => (
+                  <tr key={row.id} className="hover:bg-gray-50 transition">
+                    {row.getVisibleCells().map((cell) => (
+                      <td
+                        key={cell.id}
+                        className="border border-gray-200 px-4 py-2 text-gray-700"
+                      >
+                        {cell.column.columnDef.cell
+                          ? cell.column.columnDef.cell(cell)
+                          : cell.getValue()}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="text-center text-gray-600">
+            You haven't made any donations yet.
+          </p>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyDonationPage
+export default MyDonationPage;
