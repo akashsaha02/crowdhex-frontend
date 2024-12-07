@@ -66,7 +66,7 @@ const CampaignDetailsPage = () => {
         donationDate: new Date().toISOString(),
       };
 
-      const response = await axios.post(`${apiBaseUrl}donations`, donationData);
+      const response = await axios.post(`${apiBaseUrl}/donations`, donationData);
 
       if (response.status === 200) {
         setIsModalOpen(false);

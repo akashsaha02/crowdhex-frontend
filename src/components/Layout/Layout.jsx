@@ -8,9 +8,11 @@ const Layout = () => {
 
     <div className='min-h-screen grid grid-rows-[auto_1fr_auto]'>
       <Header />
-      <div className='container px-4 mx-auto'>
-        <Outlet />
-        <Toaster />
+      <Outlet />
+      <div className="">
+        <div className='max-w-7xl px-4 mx-auto'>
+          <Toaster />
+        </div>
       </div>
       <Footer />
     </div>

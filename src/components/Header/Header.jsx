@@ -12,7 +12,7 @@ const Header = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -21,7 +21,7 @@ const Header = () => {
       <NavLink
         to="/campaigns"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -31,7 +31,7 @@ const Header = () => {
         <NavLink
           to="/add-campaign"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -42,7 +42,7 @@ const Header = () => {
         <NavLink
           to="/my-campaigns"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -53,7 +53,7 @@ const Header = () => {
         <NavLink
           to="/my-donations"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -64,7 +64,7 @@ const Header = () => {
         <NavLink
           to="/profile"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -74,16 +74,15 @@ const Header = () => {
     </>
   );
 
-
   return (
-    <div className='bg-white sticky top-0 z-20 shadow-md py-2'>
-      <div className="navbar max-w-[1440px] mx-auto">
+    <div className="bg-white dark:bg-gray-900 sticky top-0 z-20 shadow-md dark:shadow-gray-700 py-2">
+      <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start items-center">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="mr-3 lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 dark:text-gray-200"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -98,16 +97,18 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 dark:bg-gray-800 dark:text-gray-200 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
           <h2
             onClick={() => navigate("/")}
-            className="text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer flex items-center gap-2"
+            className="text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer flex items-center gap-2 dark:text-gray-200"
           >
-            <span className=""><img className='w-16 h-16' src={logo} alt=""/></span>
+            <span>
+              <img className="w-16 h-16" src={logo} alt="" />
+            </span>
             CrowdHex
           </h2>
         </div>
@@ -116,19 +117,18 @@ const Header = () => {
         </div>
         <div className="navbar-end gap-2">
           <NavLink
-            to='/register'
+            to="/register"
             className={({ isActive }) =>
-              `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+              `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
               }`
             }
           >
-            {user ? user.displayName || user.email : <p className='md:text-sm lg:text-md'>Register</p>}
+            {user ? user.displayName || user.email : <p className="md:text-sm lg:text-md">Register</p>}
           </NavLink>
           <NavLink
             to="/login"
-            // onClick={user ? handleLogin : null}
             className={({ isActive }) =>
-              `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg  ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent'
+              `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-indigo-600 text-white' : 'bg-transparent dark:text-gray-200'
               }`
             }
           >
@@ -141,7 +141,7 @@ const Header = () => {
                 />
               </div>
             ) : (
-              <p className='md:text-sm lg:text-md'>Login</p>
+              <p className="md:text-sm lg:text-md">Login</p>
             )}
           </NavLink>
         </div>

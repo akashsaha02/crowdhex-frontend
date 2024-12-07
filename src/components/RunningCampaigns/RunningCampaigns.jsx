@@ -23,7 +23,7 @@ const RunningCampaigns = () => { // Default limit to 6
     }, []);
 
     return (
-        <section className="py-16 px-6">
+        <section className="py-16 px-6 max-w-6xl mx-auto px-4">
             <h2 className="text-3xl font-semibold text-center text-gray-800">
                 Running Campaigns
             </h2>
