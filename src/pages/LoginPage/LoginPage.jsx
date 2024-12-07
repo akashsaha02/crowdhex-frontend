@@ -54,7 +54,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen my-6">
+        <div className="flex items-center justify-center my-6">
             <Helmet>
                 <title>CrowdHex | Login</title>
             </Helmet>

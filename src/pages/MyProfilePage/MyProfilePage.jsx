@@ -42,7 +42,7 @@ const MyProfilePage = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center py-8">
+        <div className="flex flex-col items-center justify-center py-8">
             <Helmet>
                 <title>CrowdHex | Dashboard</title>
             </Helmet>

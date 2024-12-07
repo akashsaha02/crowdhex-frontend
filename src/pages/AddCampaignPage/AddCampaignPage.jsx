@@ -3,6 +3,8 @@ import { toast } from "react-hot-toast"; // For toast notifications
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from './../../providers/AuthProvider';
 import axios from 'axios';
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
 
 const AddCampaignPage = () => {
   const { user } = useContext(AuthContext);
@@ -31,7 +33,7 @@ const AddCampaignPage = () => {
 
     // Backend integration: Send data to your API or database
     try {
-      const response = await axios.post("http://localhost:3000/campaigns", {
+      const response = await axios.post(`${apiBaseUrl}/campaigns`, {
         ...formData,
         userEmail: user.email,
         userName: user.displayName,

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CampaignCard from "../CampaignCard/CampaignCard";
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
 const RunningCampaigns = () => { // Default limit to 6
     const [campaigns, setCampaigns] = useState([]);
 
@@ -10,7 +12,7 @@ const RunningCampaigns = () => { // Default limit to 6
     useEffect(() => {
         const fetchCampaigns = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/running');
+                const response = await axios.get(`${apiBaseUrl}/running`);
                 setCampaigns(response.data);
             } catch (error) {
                 console.error("Error fetching campaigns:", error);

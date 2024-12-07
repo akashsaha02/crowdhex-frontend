@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
 
 const UpdateCampaigns = () => {
   const { id } = useParams();
@@ -19,7 +21,7 @@ const UpdateCampaigns = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/campaigns/${id}`)
+      .get(`${apiBaseUrl}/campaigns/${id}`)
       .then((response) => {
         setCampaignDetails(response.data);
         setFormData({
@@ -49,7 +51,7 @@ const UpdateCampaigns = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/campaigns/${id}`,
+        `${apiBaseUrl}/campaigns/${id}`,
         formData,
         {
           headers: { "Content-Type": "application/json" },

@@ -1,9 +1,10 @@
-import { useContext, useEffect, useMemo, useState,useCallback } from "react";
+import { useContext, useEffect, useMemo, useState, useCallback } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import CampaignTable from "../../components/MyCampaignTable/MyCampaignTable";
 import CampaignActions from "../../components/MyCampaignActions/MyCampaignActions";
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const MyCampaignPage = () => {
   const { user } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const MyCampaignPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/campaigns")
+      .get(`${apiBaseUrl}/campaigns`)
       .then((response) => {
         const receivedData = response.data.filter(
           (item) => item.userEmail === email
@@ -36,7 +37,7 @@ const MyCampaignPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/campaigns/${id}`)
+          .delete(`${apiBaseUrl}campaigns/${id}`)
           .then(() => {
             setCampaigns((prevCampaigns) =>
               prevCampaigns.filter((campaign) => campaign._id !== id)

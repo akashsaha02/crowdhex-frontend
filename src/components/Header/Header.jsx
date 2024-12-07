@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-// import logo from '../../../public/2077008.png';
+import logo from '../../assets/logo-removebg-preview.png';
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -76,7 +76,7 @@ const Header = () => {
 
 
   return (
-    <div className='bg-white sticky top-0 z-10 shadow-md py-2'>
+    <div className='bg-white sticky top-0 z-20 shadow-md py-2'>
       <div className="navbar max-w-[1440px] mx-auto">
         <div className="navbar-start items-center">
           <div className="dropdown">
@@ -107,7 +107,7 @@ const Header = () => {
             onClick={() => navigate("/")}
             className="text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer flex items-center gap-2"
           >
-            {/* <span className=""><img className='w-10 h-10' src={logo} alt=""/></span> */}
+            <span className=""><img className='w-16 h-16' src={logo} alt=""/></span>
             CrowdHex
           </h2>
         </div>

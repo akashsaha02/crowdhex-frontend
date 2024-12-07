@@ -91,7 +91,7 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen my-6">
+        <div className="flex items-center justify-center my-6">
             <Helmet>
                 <title>CrowdHex | Register</title>
             </Helmet>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState, useMemo } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
 import { useReactTable, getCoreRowModel } from "@tanstack/react-table";
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const MyDonationPage = () => {
   const { user } = useContext(AuthContext);
@@ -10,7 +11,7 @@ const MyDonationPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/donations`)
+      .get(`${apiBaseUrl}/donations`)
       .then((response) => {
         const receivedData = response.data.filter(
           (item) => item.userEmail === email
@@ -59,7 +60,7 @@ const MyDonationPage = () => {
   });
 
   return (
-    <div className="min-h-screen py-10">
+    <div className="py-10">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">
           My Donations

@@ -4,6 +4,9 @@ import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
+
 const CampaignDetailsPage = () => {
   const { user } = useContext(AuthContext);
   const p = useParams();
@@ -20,7 +23,7 @@ const CampaignDetailsPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/campaigns/${p.id}`)
+      .get(`${apiBaseUrl}/campaigns/${p.id}`)
       .then((response) => {
         setCampaignDetails(response.data);
       })
@@ -63,7 +66,7 @@ const CampaignDetailsPage = () => {
         donationDate: new Date().toISOString(),
       };
 
-      const response = await axios.post("http://localhost:3000/donations", donationData);
+      const response = await axios.post(`${apiBaseUrl}donations`, donationData);
 
       if (response.status === 200) {
         setIsModalOpen(false);
