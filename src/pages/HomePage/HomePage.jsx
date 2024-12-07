@@ -3,6 +3,7 @@ import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import CallToAction from "../../components/CallToAction/CallToAction";
 import RunningCampaigns from "../../components/RunningCampaigns/RunningCampaigns";
 import CarouselComp from "../../components/CarouselComp/CarouselComp";
+import Banner from "../../components/Banner/Banner";
 
 const HomePage = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -36,8 +37,8 @@ const HomePage = () => {
         </button>
       </div>
 
-      
-      <CarouselComp/>
+      <Banner/>
+      {/* <CarouselComp/> */}
       {/* Running Campaigns Section */}
       <RunningCampaigns />
       {/* How It Works Section */}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SortButton from "../../components/SortButton/SortButton";
 import CampaignCard from "../../components/CampaignCard/CampaignCard";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 
@@ -33,11 +34,12 @@ const CampaignsPage = () => {
   };
 
   return (
-    <div className="py-16 px-6">
-      <h2 className="text-3xl font-semibold text-center text-gray-800">Ongoing Campaigns</h2>
-      <p className="text-center text-gray-600 mt-2">Explore and support the active campaigns.</p>
-      <SortButton handleSort={handleSort} sortOrder={sortOrder} />
-      <CampaignCard campaigns={sortedCampaigns} />
+    <div className="pt-10 pb-16 px-4 max-w-7xl mx-auto">
+      <div className="">
+        <SectionTitle title="All Campaigns" subtitle="Explore and support the active campaigns." />
+        <SortButton handleSort={handleSort} sortOrder={sortOrder} />
+        <CampaignCard campaigns={sortedCampaigns} />
+      </div>
     </div>
   );
 };

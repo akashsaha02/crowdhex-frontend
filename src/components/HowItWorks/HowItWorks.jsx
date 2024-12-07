@@ -1,41 +1,63 @@
+import SectionTitle from "../SectionTitle/SectionTitle";
+
 const HowItWorks = () => {
-    const steps = [
-      {
-        number: 1,
-        title: "Create a Campaign",
-        description: "Start your donation drive by creating a campaign.",
-      },
-      {
-        number: 2,
-        title: "Receive Donations",
-        description: "Let people contribute to your cause effortlessly.",
-      },
-      {
-        number: 3,
-        title: "Make an Impact",
-        description: "Deliver the donations and share the joy.",
-      },
-    ];
-  
-    return (
-      <section className="bg-gray-50 py-16 px-6">
-        <h2 className="text-3xl font-semibold text-center text-gray-800">
-          How It Works
-        </h2>
-        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-12">
-          {steps.map((step) => (
-            <div className="text-center" key={step.number}>
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto">
+  const steps = [
+    {
+      number: 1,
+      title: "Create a Campaign",
+      description: "Start your donation drive by creating a campaign.",
+    },
+    {
+      number: 2,
+      title: "Receive Donations",
+      description: "Let people contribute to your cause effortlessly.",
+    },
+    {
+      number: 3,
+      title: "Make an Impact",
+      description: "Deliver the donations and share the joy.",
+    },
+  ];
+
+  return (
+    <section
+      className="py-10
+         dark:bg-gray-900 dark:text-white bg-gray-50 text-gray-800
+      "
+    >
+      <div className="px-4 max-w-7xl mx-auto">
+
+
+        {/* Section Heading */}
+        <SectionTitle title="How It Works" subtitle="Discover how simple it is to start making a difference" />
+
+        {/* Steps */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className={`flex flex-col items-center text-center space-y-6 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 
+              dark:bg-gray-800 dark:text-gray-300
+              bg-white text-gray-800
+              `}
+            >
+              {/* Step Number */}
+              <div
+                className={`w-12 h-12 flex items-center justify-center rounded-full font-bold bg-teal-400 text-gray-900" dark:bg-teal-500 dark:text-white
+                `}
+              >
                 {step.number}
               </div>
-              <h3 className="text-xl font-semibold mt-4">{step.title}</h3>
-              <p className="text-gray-600 mt-2">{step.description}</p>
+              {/* Step Title */}
+              <h3 className="text-2xl font-semibold">{step.title}</h3>
+              {/* Step Description */}
+              <p className="text-lg">{step.description}</p>
             </div>
           ))}
         </div>
-      </section>
-    );
-  };
-  
-  export default HowItWorks;
-  
+      </div>
+    </section>
+  );
+};
+
+export default HowItWorks;

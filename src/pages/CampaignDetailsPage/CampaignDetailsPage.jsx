@@ -3,9 +3,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import { AiOutlineCalendar, AiOutlineDollarCircle } from "react-icons/ai";
+import { FaUserCircle, FaEnvelope, FaDonate } from "react-icons/fa";
+import { BiCategory } from "react-icons/bi";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-
 
 const CampaignDetailsPage = () => {
   const { user } = useContext(AuthContext);
@@ -81,93 +84,106 @@ const CampaignDetailsPage = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 px-4 py-6 bg-white rounded-lg shadow-lg">
-      <h1 className="text-3xl font-bold text-blue-600 text-center mb-6">Campaign Details</h1>
-      {campaignDetails ? (
-        <div>
-          {/* Campaign Details */}
-          <img
-            src={campaignDetails.image}
-            alt={campaignDetails.title}
-            className="w-full rounded-lg mb-4 shadow-md"
-          />
-          <h2 className="text-2xl font-semibold">{campaignDetails.title}</h2>
-          <p className="text-gray-700 mt-2">{campaignDetails.description}</p>
-
-          {/* Additional Details */}
-          <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-            <p className="text-gray-600 capitalize">
-              <span className="font-semibold">Category:</span> {campaignDetails.type}
-            </p>
-            <p className="text-gray-600">
-              <span className="font-semibold">Minimum Donation:</span> ${campaignDetails.minDonation}</p>
-            <p className="text-gray-600">
-              <span className="font-semibold">Deadline:</span>{" "}
-              {new Date(campaignDetails.deadline).toLocaleDateString()}
-            </p>
-          </div>
-
-          {/* Created By */}
-          <p className="text-gray-500 mt-4">
-            Created by: <strong>{campaignDetails.userName}</strong>
-          </p>
-          <p className="text-gray-500">
-            Email: <strong>{campaignDetails.userEmail}</strong>
-          </p>
-
-          {/* Show if the campaign is expired */}
-          {isCampaignExpired() && (
-            <p className="text-red-600 mt-4 font-semibold">
-              This campaign has ended and no longer accepts donations.
-            </p>
-          )}
-
-          {/* Donate Button */}
-          {!isCampaignExpired() && (
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="mt-6 px-4 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 focus:outline-none"
-            >
-              Donate
-            </button>
-          )}
-        </div>
-      ) : (
-        <p className="text-center text-gray-500">Loading...</p>
-      )}
-
-      {/* Donation Modal */}
-      {isModalOpen && (
-        <div className="modal modal-open">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Make a Donation</h3>
-            <p className="py-2">
-              Enter the amount you wish to donate (Minimum: ${campaignDetails.minDonation}):
-            </p>
-            <input
-              type="number"
-              value={donationAmount}
-              onChange={(e) => setDonationAmount(e.target.value)}
-              className="input input-bordered w-full"
-              placeholder={`Minimum: $${campaignDetails.minDonation}`}
+    <div className="max-w-4xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+      <SectionTitle title="Campaign Details" subtitle="View the details of the selected campaign." />
+      <div>
+        {campaignDetails ? (
+          <div className="mt-4 md:mt-6">
+            {/* Campaign Details */}
+            <img
+              src={campaignDetails.image}
+              alt={campaignDetails.title}
+              className="w-full rounded-lg mb-4 shadow-md"
             />
-            <div className="modal-action">
+            <h2 className="text-3xl font-semibold">{campaignDetails.title}</h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">{campaignDetails.description}</p>
+
+            {/* Additional Details */}
+            <div className="mt-4 p-4 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-3 items-center gap-2">
+              <p className="flex items-center md:justify-center gap-2 capitalize">
+                <BiCategory className="text-teal-500 text-lg" />
+                <span className="font-semibold">Category:</span> {campaignDetails.type}
+              </p>
+              <p className="flex items-center md:justify-center gap-2">
+                <AiOutlineDollarCircle className="text-teal-500 text-lg" />
+                <span className="font-semibold">Minimum Donation:</span> ${campaignDetails.minDonation}
+              </p>
+              <p className="flex items-center md:justify-center gap-2">
+                <AiOutlineCalendar className="text-teal-500 text-lg" />
+                <span className="font-semibold">Deadline:</span>{" "}
+                {new Date(campaignDetails.deadline).toLocaleDateString()}
+              </p>
+            </div>
+
+            {/* Created By */}
+            <div className="flex flex-col md:flex-row justify-between gap-3 mt-6">
+              <p className="flex items-center gap-2">
+                <FaUserCircle className="text-teal-500 text-lg" />
+                Created by: <strong>{campaignDetails.userName}</strong>
+              </p>
+              <p className="flex items-center gap-2">
+                <FaEnvelope className="text-teal-500 text-lg" />
+                Email: <strong>{campaignDetails.userEmail}</strong>
+              </p>
+            </div>
+
+            {/* Show if the campaign is expired */}
+            {isCampaignExpired() && (
+              <p className="text-red-600 dark:text-red-400 mt-4 font-semibold">
+                This campaign has ended and no longer accepts donations.
+              </p>
+            )}
+
+            {/* Donate Button */}
+            {!isCampaignExpired() && (
               <button
-                onClick={() => setIsModalOpen(false)}
-                className="btn btn-secondary"
+                onClick={() => setIsModalOpen(true)}
+                className="mt-6 flex items-center justify-center gap-2 px-4 py-4 bg-green-600 dark:bg-green-500 text-white font-bold rounded-lg hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none shadow-md transition-all w-full"
               >
-                Cancel
-              </button>
-              <button
-                onClick={handleDonate}
-                className="btn btn-primary"
-              >
+                <FaDonate className="text-lg" />
                 Donate
               </button>
+            )}
+          </div>
+        ) : (
+          <div className="flex justify-center items-center max-w-4xl">
+            <span className="loading loading-dots loading-lg"></span>
+          </div>
+        )}
+
+        {/* Donation Modal */}
+        {isModalOpen && (
+          <div className="modal modal-open text-black dark:text-white">
+            <div className="modal-box bg-white dark:bg-gray-800">
+              <h3 className="font-bold text-lg">Make a Donation</h3>
+              <p className="py-2">
+                Enter the amount you wish to donate (Minimum: ${campaignDetails.minDonation}):
+              </p>
+              <input
+                type="number"
+                value={donationAmount}
+                onChange={(e) => setDonationAmount(e.target.value)}
+                className="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-300"
+                placeholder={`Minimum: $${campaignDetails.minDonation}`}
+              />
+              <div className="modal-action">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="btn btn-secondary dark:bg-gray-700 dark:text-white"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleDonate}
+                  className="btn btn-primary dark:bg-green-600"
+                >
+                  Donate
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

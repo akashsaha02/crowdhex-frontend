@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
+import { AiOutlineDollarCircle, AiOutlineCalendar } from "react-icons/ai";
+import { BiCategory } from "react-icons/bi";
+
 
 const CampaignCard = ({ campaigns }) => {
     const checkIfRunning = (deadline) => {
@@ -15,52 +18,56 @@ const CampaignCard = ({ campaigns }) => {
                 return (
                     <div
                         key={campaign._id}
-                        className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform transform"
+                        className="relative group max-w-sm rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 dark:bg-gray-800 dark:text-gray-100"
                     >
-                        <div className="relative">
-                            <img
-                                src={campaign.image}
-                                alt={campaign.title}
-                                className="w-full h-48 object-cover"
-                            />
-                            <div
-                                className={`px-3 py-1 text-sm font-bold text-center rounded-lg absolute top-4 right-4 shadow-lg ${isRunning
-                                        ? "bg-purple-700 text-white shadow-black/80 animate-pulse"
-                                        : "bg-gray-800 text-gray-50 shadow-black/60"
-                                    }`}
-                            >
-                                {isRunning ? "Running" : "Ended"}
-                            </div>
-                        </div>
-                        <div className="p-6">
-                            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
-                                {campaign.title}
-                            </h3>
-                            <p className="text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">
-                                {campaign.description}
-                            </p>
+                        {/* Image Section */}
+                        <img
+                            src={campaign.image}
+                            alt={campaign.title}
+                            className="w-full h-64 object-cover group-hover:brightness-50 transition-all duration-300"
+                        />
 
-                            <div className="mt-4 space-y-2">
-                                <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">
-                                    <span className="font-medium">Category:</span> {campaign.type}
+                        {/* Campaign Status Badge */}
+                        <div
+                            className={`absolute top-2 right-2 px-3 py-1 text-xs font-semibold uppercase rounded-lg shadow-lg ${isRunning
+                                ? "bg-green-600 text-white animate-pulse"
+                                : "bg-red-600 text-white"
+                                }`}
+                        >
+                            {isRunning ? "Running" : "Ended"}
+                        </div>
+
+                        {/* Details Section */}
+                        <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/90 to-transparent">
+                            <h3 className="text-2xl font-bold text-white shadow-md line-clamp-1">{campaign.title}</h3>
+                            <p className="text-white text-sm mt-2 line-clamp-1">{campaign.description}</p>
+
+                            {/* Additional Info */}
+                            <div className="mt-4 flex flex-wrap items-center gap-4 text-gray-300">
+                                <p className="flex items-center gap-2 capitalize font-bold text-white">
+                                    <BiCategory className="text-teal-400 text-lg" />
+                                    {campaign.type}
                                 </p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">
-                                    <span className="font-medium">Minimum Donation:</span> ${campaign.minDonation}
+                                <p className="flex items-center gap-2 font-bold text-white">
+                                    <AiOutlineDollarCircle className="text-yellow-400 text-lg" />
+                                    ${campaign.minDonation} Min
                                 </p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">
-                                    <span className="font-medium">Deadline:</span>{" "}
+                                <p className="flex items-center gap-2 font-bold text-white">
+                                    <AiOutlineCalendar className="text-blue-400 text-lg" />
                                     {formatDistanceToNow(new Date(campaign.deadline), { addSuffix: true })}
                                 </p>
                             </div>
 
+                            {/* Learn More Button */}
                             <Link
                                 to={`/campaigns/${campaign._id}`}
-                                className="mt-4 inline-block w-full bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 transition"
+                                className="mt-6 w-full inline-block text-center bg-teal-600 text-white font-bold py-2 rounded-lg shadow-md hover:bg-teal-700 transition-transform transform hover:translate-y-1"
                             >
                                 Learn More
                             </Link>
                         </div>
                     </div>
+
 
                 );
             })}
