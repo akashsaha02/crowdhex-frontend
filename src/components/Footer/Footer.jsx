@@ -88,7 +88,7 @@ const Footer = () => {
 
       <div className="border-t border-gray-700 mt-10 py-4">
         <div className="container mx-auto flex justify-between items-center px-6 lg:px-12">
-          <p className="text-sm text-gray-400">© 2024 Carrer Hub. All rights reserved.</p>
+          <p className="text-sm text-gray-400">© 2025 CrowdHex. All rights reserved.</p>
           <nav className="flex space-x-4">
             <a href="#" className="text-gray-400 hover:text-teal-400">
               Privacy Policy

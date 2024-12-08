@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const ProfileTooltip = () => {
     const { logoutUser, user } = useContext(AuthContext);
     const [isProfileHovered, setIsProfileHovered] = useState(false);
+    const [isTooltipHovered, setIsTooltipHovered] = useState(false);
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -18,6 +19,8 @@ const ProfileTooltip = () => {
             Swal.fire("Error", "Error logging out!", "error");
         }
     };
+
+    const isTooltipVisible = isProfileHovered || isTooltipHovered;
 
     return (
         <div
@@ -35,10 +38,12 @@ const ProfileTooltip = () => {
             {/* Tooltip */}
             <div
                 className={`${
-                    isProfileHovered
+                    isTooltipVisible
                         ? "opacity-100 z-50 translate-y-0 pointer-events-auto"
                         : "opacity-0 z-[-10] translate-y-[20px] pointer-events-none"
-                } absolute top-[70px] left-[0%] transform translate-x-[-80%] bg-base-100 w-[250px] rounded-md p-[15px] shadow-lg transition-all duration-300 border-2 border-teal-800 dark:text-white`}
+                } absolute top-[50px] left-[0%] transform translate-x-[-80%] bg-base-100 w-[250px] rounded-md p-[15px] shadow-lg transition-all duration-300 border-2 border-teal-800 dark:text-white`}
+                onMouseEnter={() => setIsTooltipHovered(true)}
+                onMouseLeave={() => setIsTooltipHovered(false)}
             >
                 {/* Socials */}
                 <div className="flex items-center justify-between border-b border-gray-200 pb-[7px]">
