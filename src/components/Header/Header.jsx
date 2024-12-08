@@ -2,12 +2,11 @@ import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import logo from '../../assets/logo-removebg-preview.png';
-import { Tooltip } from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css'
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import ProfileTooltip from '../ProfileTooltip/ProfileTooltip';
 
-const Header = ({ toggleTheme, currentTheme }) => {
+const Header = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 

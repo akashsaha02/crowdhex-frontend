@@ -117,7 +117,7 @@ const MyCampaignPage = () => {
           <CampaignTable campaigns={campaigns} columns={columns} />
         ) : (
           <p className="text-center text-gray-600 mt-10">
-            You haven't created any campaigns yet.
+            You haven&apos;t created any campaigns yet.
           </p>
         )}
       </div>
