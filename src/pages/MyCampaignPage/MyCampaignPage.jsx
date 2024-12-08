@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import CampaignTable from "../../components/MyCampaignTable/MyCampaignTable";
 import CampaignActions from "../../components/MyCampaignActions/MyCampaignActions";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const MyCampaignPage = () => {
@@ -103,13 +104,10 @@ const MyCampaignPage = () => {
 
   return (
     <div className="py-10">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">
-          My Campaigns
-        </h2>
-        <p className="text-lg text-gray-600 text-center mb-10">
-          Manage your active campaigns below.
-        </p>
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="mb-10">
+          <SectionTitle title="My Campaigns" subtitle={"Manage your active campaigns below."} />
+        </div>
         {campaigns.length > 0 ? (
           <CampaignTable campaigns={campaigns} columns={columns} />
         ) : (

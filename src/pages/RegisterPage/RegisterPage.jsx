@@ -92,108 +92,113 @@ const RegisterPage = () => {
 
     return (
         <div className="flex items-center justify-center my-6">
-            <Helmet>
-                <title>CrowdHex | Register</title>
-            </Helmet>
-            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
-                <h2 className="text-2xl font-bold text-center text-gray-700">Create an Account</h2>
-                <hr className='my-4'></hr>
-                <form onSubmit={handleSubmit} className="space-y-5">
-
-                    <div>
-                        <label htmlFor="username" className="block text-sm font-medium text-gray-600">
-                            Username
-                        </label>
-                        <input
-                            type="text"
-                            name="username"
-                            id="username"
-                            value={formData.username}
-                            onChange={handleChange}
-                            autoComplete='name'
-                            required
-                            placeholder='Enter a username'
-                            className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="photoUrl" className="block text-sm font-medium text-gray-600">
-                            Avatar
-                        </label>
-                        <input
-                            type="text"
-                            name="photoUrl"
-                            value={formData.photoUrl}
-                            onChange={handleChange}
-                            autoComplete='photo'
-                            required
-                            placeholder='Enter a photo URL'
-                            className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-600">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            autoComplete='email'
-                            required
-                            placeholder='Enter a valid e-mail'
-                            className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        />
-                    </div>
-
-                    <div className="relative">
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-600">
-                            Password
-                        </label>
-                        <input
-                            type={showPassword ? 'text' : 'password'}
-                            name="password"
-                            id="password"
-                            autoComplete='new-password'
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                            placeholder='Enter a strong password'
-                            className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        />
-                        <button
-                            type="button"
-                            onClick={togglePasswordVisibility}
-                            className="absolute inset-y-0 right-4 top-6 flex items-center text-gray-600 hover:text-gray-800"
-                        >
-                            {showPassword ? <FaEyeSlash /> : <FaEye />}
-                        </button>
-                    </div>
-
-                    <button
-                        type="submit"
-                        className="w-full py-2 mt-4 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    >
-                        Register
-                    </button>
-                </form>
-
-                <p className="text-sm text-center text-gray-600">
-                    Already have an account?{' '}
-                    <span onClick={() => navigate("/login")} className="text-blue-500 hover:underline">
-                        Log in
-                    </span>
-                </p>
-
-                {errorMessage && <p className="text-sm text-red-500">{errorMessage}</p>}
-                {success && <p className="text-sm text-green-500">User registered successfully</p>}
-                {/* {verificationMessage && <p className="text-sm text-blue-500">{verificationMessage}</p>} */}
+        <Helmet>
+          <title>CrowdHex | Register</title>
+        </Helmet>
+        <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:shadow-gray-900">
+          <h2 className="text-2xl font-bold text-center text-gray-700 dark:text-gray-200">
+            Create an Account
+          </h2>
+          <hr className="my-4 border-gray-300 dark:border-gray-600" />
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Username */}
+            <div>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
+                Username
+              </label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value={formData.username}
+                onChange={handleChange}
+                autoComplete="name"
+                required
+                placeholder="Enter a username"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+              />
             </div>
+      
+            {/* Avatar */}
+            <div>
+              <label htmlFor="photoUrl" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
+                Avatar
+              </label>
+              <input
+                type="text"
+                name="photoUrl"
+                value={formData.photoUrl}
+                onChange={handleChange}
+                autoComplete="photo"
+                required
+                placeholder="Enter a photo URL"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+              />
+            </div>
+      
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+                autoComplete="email"
+                required
+                placeholder="Enter a valid e-mail"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+              />
+            </div>
+      
+            {/* Password */}
+            <div className="relative">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-600 dark:text-gray-300">
+                Password
+              </label>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                autoComplete="new-password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                placeholder="Enter a strong password"
+                className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute inset-y-0 right-4 top-6 flex items-center text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
+      
+            <button
+              type="submit"
+              className="w-full py-2 mt-4 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-blue-600 dark:hover:bg-blue-700"
+            >
+              Register
+            </button>
+          </form>
+      
+          <p className="text-sm text-center text-gray-600 dark:text-gray-300">
+            Already have an account?{" "}
+            <span onClick={() => navigate("/login")} className="text-blue-500 hover:underline">
+              Log in
+            </span>
+          </p>
+      
+          {errorMessage && <p className="text-sm text-red-500 dark:text-red-400">{errorMessage}</p>}
+          {success && <p className="text-sm text-green-500 dark:text-green-400">User registered successfully</p>}
         </div>
+      </div>
+      
     );
 };
 

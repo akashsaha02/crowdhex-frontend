@@ -20,17 +20,10 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section
-      className="py-10
-         dark:bg-gray-900 dark:text-white bg-gray-50 text-gray-800
-      "
-    >
+    <section className="py-12 md:py-16 dark:bg-gray-900 dark:text-white text-gray-800">
       <div className="px-4 max-w-7xl mx-auto">
-
-
         {/* Section Heading */}
         <SectionTitle title="How It Works" subtitle="Discover how simple it is to start making a difference" />
-
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
           {steps.map((step, index) => (

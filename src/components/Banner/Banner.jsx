@@ -7,7 +7,7 @@ const Banner = () => {
         <section>
             <div className="max-w-7xl mx-auto px-4 py-10 lg:py-16 grid grid-cols-1 md:grid-cols-2 items-center lg:justify-between">
                 {/* Left Content */}
-                <div className="text-center lg:text-left max-w-2xl">
+                <div className=" max-w-2xl">
                     <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                         Empower Dreams with{" "}
                         <span className="dark:text-teal-400 text-teal-600">CrowdHex</span>
@@ -27,12 +27,12 @@ const Banner = () => {
                             delaySpeed={1000}
                         />
                     </div>
-                    <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
+                    <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 text-justify">
                         Join hands to fund the projects that inspire you. Whether it's a
                         startup idea, a personal need, or a community project, we connect
                         dreamers with supporters to make a difference.
                     </p>
-                    <div className="mt-8 flex flex-col lg:flex-row gap-4 justify-center lg:justify-start">
+                    <div className="mt-8 flex gap-4 justify-start">
                         <button className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
                             Start a Campaign
                         </button>
@@ -43,7 +43,7 @@ const Banner = () => {
                 </div>
 
                 {/* Right Content */}
-                <div className="mt-12 lg:mt-0 flex justify-end">
+                <div className="mt-12 lg:mt-0 flex justify-center md:justify-end">
                     <div className="relative">
                         <Lottie
                             animationData={typewriterAnimation}

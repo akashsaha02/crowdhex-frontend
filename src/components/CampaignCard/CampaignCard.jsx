@@ -12,19 +12,19 @@ const CampaignCard = ({ campaigns }) => {
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-center items-center">
             {campaigns.map((campaign) => {
                 const isRunning = checkIfRunning(campaign.deadline);
                 return (
                     <div
                         key={campaign._id}
-                        className="relative group max-w-sm rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 dark:bg-gray-800 dark:text-gray-100"
+                        className="relative group max-w-md rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 dark:bg-gray-800 dark:text-gray-100"
                     >
                         {/* Image Section */}
                         <img
                             src={campaign.image}
                             alt={campaign.title}
-                            className="w-full h-64 object-cover group-hover:brightness-50 transition-all duration-300"
+                            className="w-full h-64 md:h-72 object-cover group-hover:brightness-50 transition-all duration-300"
                         />
 
                         {/* Campaign Status Badge */}
@@ -39,7 +39,7 @@ const CampaignCard = ({ campaigns }) => {
 
                         {/* Details Section */}
                         <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/90 to-transparent">
-                            <h3 className="text-2xl font-bold text-white shadow-md line-clamp-1">{campaign.title}</h3>
+                            <h3 className="text-2xl font-bold text-white shadow-md line-clamp-2">{campaign.title}</h3>
                             <p className="text-white text-sm mt-2 line-clamp-1">{campaign.description}</p>
 
                             {/* Additional Info */}
@@ -48,10 +48,10 @@ const CampaignCard = ({ campaigns }) => {
                                     <BiCategory className="text-teal-400 text-lg" />
                                     {campaign.type}
                                 </p>
-                                <p className="flex items-center gap-2 font-bold text-white">
+                                {/* <p className="flex items-center gap-2 font-bold text-white">
                                     <AiOutlineDollarCircle className="text-yellow-400 text-lg" />
                                     ${campaign.minDonation} Min
-                                </p>
+                                </p> */}
                                 <p className="flex items-center gap-2 font-bold text-white">
                                     <AiOutlineCalendar className="text-blue-400 text-lg" />
                                     {formatDistanceToNow(new Date(campaign.deadline), { addSuffix: true })}

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
-import CallToAction from "../../components/CallToAction/CallToAction";
 import RunningCampaigns from "../../components/RunningCampaigns/RunningCampaigns";
-import CarouselComp from "../../components/CarouselComp/CarouselComp";
 import Banner from "../../components/Banner/Banner";
+import OurMission from "../../components/OurMission/OurMission";
+import NewsletterFAQ from "../../components/NewsletterFAQ/NewsletterFAQ";
 
 const HomePage = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -37,14 +37,11 @@ const HomePage = () => {
         </button>
       </div>
 
-      <Banner/>
-      {/* <CarouselComp/> */}
-      {/* Running Campaigns Section */}
+      <Banner />
       <RunningCampaigns />
-      {/* How It Works Section */}
       <HowItWorks />
-      {/* Call-to-Action Section */}
-      <CallToAction />
+      <OurMission />
+      <NewsletterFAQ/>
     </div>
   );
 };

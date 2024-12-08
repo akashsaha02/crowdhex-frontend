@@ -23,13 +23,13 @@ const RunningCampaigns = () => { // Default limit to 6
     }, []);
 
     return (
-        <section className="py-16 px-6 max-w-6xl mx-auto px-4">
-            <SectionTitle title="Running Campaigns" subtitle="Explore and support the active campaigns." />
-            <div >
-                <CampaignCard campaigns={campaigns} />
+        <section className="bg-gray-100 dark:bg-gray-900">
+            <div className="py-10 md:py-16 max-w-6xl mx-auto px-4">
+                <SectionTitle title="Running Campaigns" subtitle="Explore and support the active campaigns." />
+                <div className="flex justify-center items-center" >
+                    <CampaignCard campaigns={campaigns} />
+                </div>
             </div>
-
-
         </section>
     );
 };

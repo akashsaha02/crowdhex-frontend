@@ -2,6 +2,7 @@ import { useContext, useEffect, useState, useMemo } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
 import { useReactTable, getCoreRowModel } from "@tanstack/react-table";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const MyDonationPage = () => {
@@ -62,12 +63,11 @@ const MyDonationPage = () => {
   return (
     <div className="py-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">
-          My Donations
-        </h2>
-        <p className="text-lg text-gray-600 text-center mb-10">
-          A record of all the campaigns you have contributed to.
-        </p>
+        <div className=" mb-10">
+
+          <SectionTitle title={"My Donations"} subtitle={"A record of all the campaigns you have contributed to."} />
+        </div>
+
 
         {donations.length > 0 ? (
           <div className="overflow-x-auto bg-white shadow-md rounded-lg">
