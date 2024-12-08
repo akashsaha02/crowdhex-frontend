@@ -19,14 +19,16 @@ const ProfileTooltip = () => {
     };
     return (
         <div className="relative w-fit h-full flex items-center justify-center"
-            onMouseEnter={() => setIsProfileHovered(true)}
-            onMouseLeave={() => setIsProfileHovered(false)}
+
         >
             {/*  initial profile picture  */}
             <img
                 src={user.photoURL}
                 alt="profile"
-                className="w-[50px] h-[50px] rounded-full object-cover border-[3px] cursor-pointer border-teal-500" />
+                className="w-[50px] h-[50px] rounded-full object-cover border-[3px] cursor-pointer border-teal-500"
+                onMouseEnter={() => setIsProfileHovered(true)}
+                onMouseLeave={() => setIsProfileHovered(false)}
+            />
 
             {/*  tooltip  */}
             <div
@@ -67,7 +69,7 @@ const ProfileTooltip = () => {
 
                 {/*  send message  */}
                 <button
-                    onClick={()=>handleLogout()}
+                    onClick={() => handleLogout()}
                     className="flex mx-auto items-center gap-[8px] text-[0.9rem] px-6 py-2 rounded-md text-white font-bold bg-teal-500 mt-4">
                     logout
                 </button>

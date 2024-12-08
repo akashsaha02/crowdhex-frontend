@@ -70,7 +70,7 @@ const UpdateCampaigns = () => {
   };
 
   if (!campaignDetails) {
-    return <p>Loading campaign details...</p>;
+    return <div className="flex justify-center items-center"><span className="loading loading-dots loading-lg"></span></div>;
   }
 
   return (
