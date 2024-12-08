@@ -18,50 +18,55 @@ const CampaignCard = ({ campaigns }) => {
                 return (
                     <div
                         key={campaign._id}
-                        className="relative group max-w-md rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 dark:bg-gray-800 dark:text-gray-100"
+                        className="relative group max-w-md rounded-xl overflow-hidden shadow-lg transition-transform transform dark:bg-gray-900 bg-white dark:text-gray-100 border border-gray-200 dark:border-gray-700"
                     >
                         {/* Image Section */}
-                        <img
-                            src={campaign.image}
-                            alt={campaign.title}
-                            className="w-full h-64 md:h-72 object-cover group-hover:brightness-50 transition-all duration-300"
-                        />
+                        <div className="relative overflow-hidden">
+                            <img
+                                src={campaign.image}
+                                alt={campaign.title}
+                                className="w-full h-54 md:h-64 object-cover transition-transform duration-300 group-hover:scale-110 "
+                            />
 
-                        {/* Campaign Status Badge */}
-                        <div
-                            className={`absolute top-2 right-2 px-3 py-1 text-xs font-semibold uppercase rounded-lg shadow-lg ${isRunning
-                                ? "bg-green-600 text-white animate-pulse"
-                                : "bg-red-600 text-white"
-                                }`}
-                        >
-                            {isRunning ? "Running" : "Ended"}
+                            {/* Campaign Status Badge */}
+                            <span
+                                className={`absolute top-4 right-4 px-4 py-1 text-xs font-semibold uppercase rounded-full shadow-lg ${isRunning
+                                    ? "bg-green-500 text-white animate-pulse"
+                                    : "bg-red-500 text-white"
+                                    }`}
+                            >
+                                {isRunning ? "Running" : "Ended"}
+                            </span>
                         </div>
 
                         {/* Details Section */}
-                        <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/90 to-transparent">
-                            <h3 className="text-2xl font-bold text-white shadow-md line-clamp-2">{campaign.title}</h3>
-                            <p className="text-white text-sm mt-2 line-clamp-1">{campaign.description}</p>
+                        <div className="p-6">
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 truncate">
+                                {campaign.title}
+                            </h3>
+                            <p className="flex items-center gap-2 font-bold dark:text-white mt-4">
+                                <AiOutlineDollarCircle className="text-yellow-400 text-lg" />
+                                ${campaign.minDonation} Minimum Donation
+                            </p>
 
                             {/* Additional Info */}
-                            <div className="mt-4 flex flex-wrap items-center gap-4 text-gray-300">
-                                <p className="flex items-center gap-2 capitalize font-bold text-white">
+                            <div className="mt-2 flex flex-row justify-between gap-2">
+                                <p className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 capitalize">
                                     <BiCategory className="text-teal-400 text-lg" />
                                     {campaign.type}
                                 </p>
-                                {/* <p className="flex items-center gap-2 font-bold text-white">
-                                    <AiOutlineDollarCircle className="text-yellow-400 text-lg" />
-                                    ${campaign.minDonation} Min
-                                </p> */}
-                                <p className="flex items-center gap-2 font-bold text-white">
+                                <p className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                                     <AiOutlineCalendar className="text-blue-400 text-lg" />
-                                    {formatDistanceToNow(new Date(campaign.deadline), { addSuffix: true })}
+                                    {formatDistanceToNow(new Date(campaign.deadline), {
+                                        addSuffix: true,
+                                    })}
                                 </p>
                             </div>
 
                             {/* Learn More Button */}
                             <Link
                                 to={`/campaigns/${campaign._id}`}
-                                className="mt-6 w-full inline-block text-center bg-teal-600 text-white font-bold py-2 rounded-lg shadow-md hover:bg-teal-700 transition-transform transform hover:translate-y-1"
+                                className="mt-4 block w-full text-center bg-teal-600 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-teal-700 transition-all duration-300"
                             >
                                 Learn More
                             </Link>

@@ -9,7 +9,7 @@ import SectionTitle from './../../components/SectionTitle/SectionTitle';
 const AddCampaignPage = () => {
   const { user } = useContext(AuthContext);
 
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     image: "",

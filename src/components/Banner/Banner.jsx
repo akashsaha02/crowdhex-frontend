@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import typewriterAnimation from "../../assets/new.json"; // Replace with your Lottie JSON file path
 import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -28,17 +29,17 @@ const Banner = () => {
                         />
                     </div>
                     <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 text-justify">
-                        Join hands to fund the projects that inspire you. Whether it's a
+                        Join hands to fund the projects that inspire you. Whether it&apos;s a
                         startup idea, a personal need, or a community project, we connect
                         dreamers with supporters to make a difference.
                     </p>
-                    <div className="mt-8 flex gap-4 justify-start">
-                        <button className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
+                    <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-start">
+                        <Link to={'/add-campaign'} className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
                             Start a Campaign
-                        </button>
-                        <button className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
+                        </Link>
+                        <Link to={'/campaigns'} className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
                             Explore Projects
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

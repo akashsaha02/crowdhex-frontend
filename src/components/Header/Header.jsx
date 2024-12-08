@@ -2,8 +2,12 @@ import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import logo from '../../assets/logo-removebg-preview.png';
+import { Tooltip } from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css'
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import ProfileTooltip from '../ProfileTooltip/ProfileTooltip';
 
-const Header = () => {
+const Header = ({ toggleTheme, currentTheme }) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -60,6 +64,11 @@ const Header = () => {
           My Donations
         </NavLink>
       )}
+
+      <ThemeToggle/>
+      {/* workinng */}
+      {/* <input type="checkbox" className="toggle toggle-accent" onChange={toggleTheme} defaultChecked /> */}
+
     </>
   );
 
@@ -117,13 +126,7 @@ const Header = () => {
 
           }
           {
-            user ? <div className="rounded-md flex justify-center items-center">
-              <img
-                src={user.photoURL}
-                alt="Avatar"
-                className="w-10 h-10 object-cover rounded-full border-2 border-red-500"
-              />
-            </div> : <NavLink
+            user ? <ProfileTooltip img={user.displayURL} name={user.displayName} email={user.email}/> : <NavLink
               to="/login"
               className={({ isActive }) =>
                 `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
@@ -132,23 +135,8 @@ const Header = () => {
               Login
             </NavLink>
           }
-
-
-          <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
-              }`
-            }
-          >
-            {user ? ("Logout"
-
-            ): (
-                <p className = "md:text-sm lg:text-md">Login</p>
-            )}
-        </NavLink>
+        </div>
       </div>
-    </div>
     </div >
   );
 };

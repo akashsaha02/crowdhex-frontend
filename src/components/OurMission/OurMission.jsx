@@ -2,14 +2,13 @@ import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
 import missionAnimation from "../../assets/mission.json"; // Replace with your animation JSON file path
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { Link } from "react-router-dom";
 
 const OurMission = () => {
 
     return (
         <section className="py-16 px-6 dark:bg-gray-900 bg-gray-50">
-
             <SectionTitle title={"Our Mission"} subtitle="Discover how simple it is to start making a difference" />
-
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 items-center justify-center space-y-8 md:space-y-0 lg:space-x-12">
                 <div
                     className="flex justify-end"
@@ -50,9 +49,9 @@ const OurMission = () => {
                         and success.
                     </p>
                     <div className="mt-6">
-                        <button className="px-6 py-2 text-md font-semibold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-lg transition-transform transform focus:ring-4 focus:ring-teal-400 focus:outline-none">
+                        <Link to={'/campaigns'} className="px-6 py-2 text-md font-semibold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-lg transition-transform transform focus:ring-4 focus:ring-teal-400 focus:outline-none">
                             Get Involved
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
