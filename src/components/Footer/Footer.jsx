@@ -1,12 +1,12 @@
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10">
+    <footer className="bg-gray-900 text-white py-10 border-t-2 border-t-slate-950 dark:border-t-slate-600">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 lg:px-12">
         <div>
           <h2 className="text-2xl font-bold text-teal-400 mb-4">CrowdHex</h2>
-          <p className="text-gray-400 mb-6">
-            Crafting reliable tech solutions since 1992. Empowering innovation and growth for a brighter future.
+          <p className="text-gray-400 mb-6 text-justify">CrowdHex connects passionate individuals with meaningful causes, empowering education, healthcare, and startups. Together, we can make a lasting impact.
           </p>
           <div className="flex space-x-4">
             <a href="#" aria-label="Twitter" className="hover:text-teal-400">
@@ -46,24 +46,24 @@ const Footer = () => {
           <h3 className="text-lg font-bold text-teal-400 mb-4">Quick Links</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="text-gray-400 hover:text-teal-400">
+              <Link to="/" className="text-gray-400 hover:text-teal-400">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-teal-400">
-                Services
-              </a>
+              <Link to="/campaigns" className="text-gray-400 hover:text-teal-400">
+                All Campaigns
+              </Link>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-teal-400">
-                About Us
-              </a>
+              <Link to="/login" className="text-gray-400 hover:text-teal-400">
+                Sign In
+              </Link>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-teal-400">
-                Contact
-              </a>
+              <Link to="/register" className="text-gray-400 hover:text-teal-400">
+                Register Now
+              </Link>
             </li>
           </ul>
         </div>

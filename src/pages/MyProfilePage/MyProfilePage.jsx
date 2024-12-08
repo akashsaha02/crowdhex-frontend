@@ -44,7 +44,7 @@ const MyProfilePage = () => {
     return (
         <div className="flex flex-col items-center justify-center py-8">
             <Helmet>
-                <title>CrowdHex | Dashboard</title>
+                <title>CrowdHex | My Profile</title>
             </Helmet>
 
             {/* Profile Section */}

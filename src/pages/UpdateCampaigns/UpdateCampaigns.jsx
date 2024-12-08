@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+import { Helmet } from 'react-helmet';
+
 
 
 const UpdateCampaigns = () => {
@@ -75,6 +77,9 @@ const UpdateCampaigns = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-10 px-4">
+      <Helmet>
+          <title>CrowdHex | Update Campaign</title>
+        </Helmet>
       <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-6 sm:p-10">
         <h1 className="text-2xl font-bold text-blue-600 text-center mb-8">
           Update Campaign

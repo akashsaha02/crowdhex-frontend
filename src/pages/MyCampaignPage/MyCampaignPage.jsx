@@ -6,6 +6,8 @@ import CampaignTable from "../../components/MyCampaignTable/MyCampaignTable";
 import CampaignActions from "../../components/MyCampaignActions/MyCampaignActions";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+import { Helmet } from 'react-helmet';
+
 
 const MyCampaignPage = () => {
   const { user } = useContext(AuthContext);
@@ -104,6 +106,9 @@ const MyCampaignPage = () => {
 
   return (
     <div className="py-10">
+      <Helmet>
+        <title>CrowdHex | My Campaigns</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-10">
           <SectionTitle title="My Campaigns" subtitle={"Manage your active campaigns below."} />

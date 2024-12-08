@@ -7,6 +7,8 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { AiOutlineCalendar, AiOutlineDollarCircle } from "react-icons/ai";
 import { FaUserCircle, FaEnvelope, FaDonate } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
+import { Helmet } from 'react-helmet';
+
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -85,6 +87,9 @@ const CampaignDetailsPage = () => {
 
   return (
     <div className="max-w-4xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+      <Helmet>
+        <title>CrowdHex | Campaign Details</title>
+      </Helmet>
       <SectionTitle title="Campaign Details" subtitle="View the details of the selected campaign." />
       <div>
         {campaignDetails ? (

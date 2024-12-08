@@ -5,6 +5,8 @@ import { AuthContext } from './../../providers/AuthProvider';
 import axios from 'axios';
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import SectionTitle from './../../components/SectionTitle/SectionTitle';
+import { Helmet } from 'react-helmet';
+
 
 const AddCampaignPage = () => {
   const { user } = useContext(AuthContext);
@@ -58,6 +60,9 @@ const AddCampaignPage = () => {
 
   return (
     <div className="dark:bg-gray-900 min-h-screen">
+      <Helmet>
+        <title>CrowdHex | Add Campaign</title>
+      </Helmet>
       <div className="max-w-4xl mx-auto mt-10 px-4 py-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
         <SectionTitle
           title="Add New Campaign"

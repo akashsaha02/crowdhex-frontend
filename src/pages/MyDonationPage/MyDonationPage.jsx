@@ -4,6 +4,7 @@ import axios from "axios";
 import { useReactTable, getCoreRowModel } from "@tanstack/react-table";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+import { Helmet } from 'react-helmet';
 
 const MyDonationPage = () => {
   const { user } = useContext(AuthContext);
@@ -62,6 +63,9 @@ const MyDonationPage = () => {
 
   return (
     <div className="py-10">
+      <Helmet>
+        <title>CrowdHex | My Donations</title>
+      </Helmet>
       <div className="container mx-auto px-4">
         <div className=" mb-10">
 

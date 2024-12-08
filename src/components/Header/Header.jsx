@@ -105,7 +105,7 @@ const Header = ({ toggleTheme, currentTheme }) => {
             className="text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer flex items-center gap-2 dark:text-gray-200"
           >
             <span>
-              <img className="w-16 h-16" src={logo} alt="" />
+              <img className="w-16 h-16 hidden md:block" src={logo} alt="" />
             </span>
             CrowdHex
           </h2>
