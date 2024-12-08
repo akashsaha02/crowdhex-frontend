@@ -31,7 +31,6 @@ const CarouselComp = () => {
       linkPrimary: { path: "/add-campaign", text: "Start a Campaign" },
       linkSecondary: { path: "/campaigns", text: "Discover Campaigns" },
     },
-
   ];
 
   return (
@@ -42,10 +41,11 @@ const CarouselComp = () => {
         showThumbs={false}
         showStatus={false}
         emulateTouch
-        swipeable
         interval={3000}
         stopOnHover
         dynamicHeight={false}
+        swipeScrollTolerance={5} // Allow vertical scroll tolerance
+        preventMovementUntilSwipeScrollTolerance
         className="max-w-7xl mx-auto rounded-lg"
       >
         {banners.map((banner, index) => (
