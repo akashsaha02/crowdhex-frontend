@@ -39,8 +39,8 @@ const CarouselComp = () => {
       <Carousel
         autoPlay
         infiniteLoop
-        showThumbs={true}
-        showStatus={true}
+        showThumbs={false}
+        showStatus={false}
         emulateTouch
         swipeable
         interval={3000}
@@ -57,7 +57,7 @@ const CarouselComp = () => {
                   <h1 className="text-4xl lg:text-5xl font-bold">
                     {banner.title}
                   </h1>
-                  <p className="mt-6 text-justify text-lg text-gray-600 dark:text-gray-300">
+                  <p className="mt-6 text-justify text-lg font-semibold text-gray-600 dark:text-gray-300">
                     {banner.description}
                   </p>
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-start">
