@@ -9,9 +9,9 @@ const HomePage = () => {
 
   return (
     <div className="dark:bg-gray-900 dark:text-gray-100 bg-white text-gray-900">
-      <Banner />
+      {/* <Banner /> */}
       <CarouselComp />
-      {/* <RunningCampaignms /> */}
+      <RunningCampaigns />
       <HowItWorks />
       <OurMission />
       <NewsletterFAQ />

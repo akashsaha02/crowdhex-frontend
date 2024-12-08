@@ -38,7 +38,7 @@ const MyCampaignPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`${apiBaseUrl}campaigns/${id}`)
+          .delete(`${apiBaseUrl}/campaigns/${id}`)
           .then(() => {
             setCampaigns((prevCampaigns) =>
               prevCampaigns.filter((campaign) => campaign._id !== id)

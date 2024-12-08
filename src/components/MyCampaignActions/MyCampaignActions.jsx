@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
-
 const MyCampaignActions = ({ id, handleDelete }) => {
 
   return (
@@ -21,9 +19,6 @@ const MyCampaignActions = ({ id, handleDelete }) => {
     </div>
   );
 };
-MyCampaignActions.propTypes = {
-  id: PropTypes.string.isRequired,
-  handleDelete: PropTypes.func.isRequired,
-};
+
 
 export default MyCampaignActions;
