@@ -64,7 +64,7 @@ const Header = () => {
         </NavLink>
       )}
 
-      <ThemeToggle/>
+      <ThemeToggle />
       {/* workinng */}
       {/* <input type="checkbox" className="toggle toggle-accent" onChange={toggleTheme} defaultChecked /> */}
 
@@ -76,7 +76,7 @@ const Header = () => {
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start items-center">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="mr-3 lg:hidden">
+            <div tabIndex={0} role="button" className="lg:hidden btn btn-sm btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 dark:text-gray-200"
@@ -106,7 +106,9 @@ const Header = () => {
             <span>
               <img className="w-12 h-12 hidden md:block" src={logo} alt="" />
             </span>
-            CrowdHex
+            <span className="text-teal-700 dark:text-teal-500">
+              CrowdHex
+            </span>
           </h2>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -125,7 +127,7 @@ const Header = () => {
 
           }
           {
-            user ? <ProfileTooltip img={user.displayURL} name={user.displayName} email={user.email}/> : <NavLink
+            user ? <ProfileTooltip img={user.displayURL} name={user.displayName} email={user.email} /> : <NavLink
               to="/login"
               className={({ isActive }) =>
                 `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
