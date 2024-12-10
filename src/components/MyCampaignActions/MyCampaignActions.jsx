@@ -5,13 +5,13 @@ const MyCampaignActions = ({ id, handleDelete }) => {
     <div className="flex justify-center items-center gap-2">
       <Link
         to={`/campaigns/update/${id}`}
-        className="text-sm bg-blue-600 text-white py-1 px-3 rounded-lg hover:bg-blue-700 transition"
+        className="text-md bg-teal-600 text-white py-2 px-3 rounded hover:bg-teal-700 transition font-bold"
       >
         Update
       </Link>
       <button
         type="button"
-        className="text-sm bg-red-600 text-white py-1 px-3 rounded-lg hover:bg-red-700 transition"
+        className="text-md bg-red-600 text-white py-2 px-3 rounded hover:bg-red-700 transition font-bold"
         onClick={() => handleDelete(id)}
       >
         Delete

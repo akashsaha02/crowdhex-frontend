@@ -90,10 +90,10 @@ const Footer = () => {
         <div className="container mx-auto flex justify-between items-center px-6 lg:px-12">
           <p className="text-sm text-gray-400">© 2025 CrowdHex. All rights reserved.</p>
           <nav className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-teal-400">
+            <a href="/privacy-policy" target="_blank" className="text-gray-400 hover:text-teal-400">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-400 hover:text-teal-400">
+            <a href="/terms-of-service" target="_blank" className="text-gray-400 hover:text-teal-400">
               Terms of Service
             </a>
           </nav>

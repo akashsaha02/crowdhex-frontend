@@ -19,7 +19,7 @@ const MyCampaignTable = ({ campaigns, columns }) => {
                 <th
                   {...column.getHeaderProps()}
                   key={column.id}
-                  className="px-4 py-3 text-gray-600 uppercase tracking-wider border text-center bg-indigo-50"
+                  className="px-4 py-3 text-gray-800 dark:text-white uppercase tracking-wider border border-gray-400 dark:border-gray-200 text-center bg-teal-100 dark:bg-gray-700"
                 >
                   {column.render("Header")}
                 </th>
@@ -40,7 +40,7 @@ const MyCampaignTable = ({ campaigns, columns }) => {
                   <td
                     {...cell.getCellProps()}
                     key={cell.id}
-                    className="px-4 py-4 border text-sm text-gray-700"
+                    className="px-4 py-4 border border-gray-400 dark:border-gray-200 text-gray-900 dark:text-white dark:bg-gray-800"
                   >
                     {cell.render("Cell")}
                   </td>

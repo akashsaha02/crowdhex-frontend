@@ -17,6 +17,8 @@ import AddCampaignPage from './pages/AddCampaignPage/AddCampaignPage';
 import MyDonationPage from './pages/MyDonationPage/MyDonationPage';
 import PrivateRoute from './routes/PrivateRoute'
 import UpdateCampaigns from './pages/UpdateCampaigns/UpdateCampaigns'
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService/TermsOfService'
 
 const router = createBrowserRouter([
   {
@@ -87,6 +89,14 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <UpdateCampaigns />
         </PrivateRoute>
+      },
+      {
+        path:'/privacy-policy',
+        element:<PrivacyPolicy/>
+      },
+      {
+        path:'/terms-of-service',
+        element:<TermsOfService/>
       }
     ]
   },

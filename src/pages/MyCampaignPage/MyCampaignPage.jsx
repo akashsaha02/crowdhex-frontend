@@ -109,7 +109,7 @@ const MyCampaignPage = () => {
       <Helmet>
         <title>CrowdHex | My Campaigns</title>
       </Helmet>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1600px] mx-auto px-4">
         <div className="mb-10">
           <SectionTitle title="My Campaigns" subtitle={"Manage your active campaigns below."} />
         </div>

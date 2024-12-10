@@ -3,9 +3,9 @@ const SortButton = ({ handleSort, sortOrder }) => {
         <div className="flex justify-center mt-4">
             <button
                 onClick={handleSort}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                className="bg-teal-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-teal-700 transition"
             >
-                Sort by Minimum Donation ({sortOrder === "asc" ? "Ascending" : "Descending"})
+                Sort by Donation ({sortOrder === "asc" ? "Ascending" : "Descending"})
             </button>
         </div>
     );
