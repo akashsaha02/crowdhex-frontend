@@ -5,6 +5,7 @@ import CampaignCard from "../../components/CampaignCard/CampaignCard";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 import { Helmet } from 'react-helmet';
+import SearchCampaign from "../../components/SearchCampaign/SearchCampaign";
 
 
 
@@ -40,9 +41,12 @@ const CampaignsPage = () => {
       <Helmet>
         <title>CrowdHex | All Campaigns</title>
       </Helmet>
-      <div className="">
+      <div className=" ">
         <SectionTitle title="All Campaigns" subtitle="Explore and support the active campaigns." />
-        <SortButton handleSort={handleSort} sortOrder={sortOrder} />
+        <div className="flex max-w-5xl mx-auto flex-col md:flex-row items-center justify-between gap-3 mt-4">
+          <SearchCampaign campaigns={campaigns} setSortedCampaigns={setSortedCampaigns} />
+          <SortButton handleSort={handleSort} sortOrder={sortOrder} />
+        </div>
         <CampaignCard campaigns={sortedCampaigns} />
       </div>
     </div>
