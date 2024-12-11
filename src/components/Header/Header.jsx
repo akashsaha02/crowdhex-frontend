@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import logo from '../../assets/logo-removebg-preview.png';
+import logo from '../../assets/logo.png';
 import 'react-tooltip/dist/react-tooltip.css'
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import ProfileTooltip from '../ProfileTooltip/ProfileTooltip';
