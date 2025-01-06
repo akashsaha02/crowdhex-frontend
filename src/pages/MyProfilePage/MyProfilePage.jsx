@@ -51,7 +51,7 @@ const MyProfilePage = () => {
       </Helmet>
 
       {/* Profile Card */}
-      <div className="w-full max-w-4xl bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+      <div className="w-full max-w-4xl bg-gray-50 dark:bg-gray-800 shadow-lg rounded overflow-hidden">
         <div className="h-24 bg-teal-400/70 "></div>
         <div className="flex justify-center -mt-16">
           <img
@@ -69,13 +69,13 @@ const MyProfilePage = () => {
           </p>
           <div className="flex justify-center mt-4 space-x-4">
             <button
-              className="flex items-center px-4 py-2 bg-teal-500 text-white rounded-lg shadow hover:bg-teal-600"
+              className="flex items-center px-4 py-2 bg-teal-500 text-white rounded shadow hover:bg-teal-600"
               onClick={() => setIsModalOpen(true)}
             >
               <FaEdit className="mr-2" /> Edit Profile
             </button>
             <button
-              className="flex items-center px-4 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700"
+              className="flex items-center px-4 py-2 bg-red-600 text-white rounded shadow hover:bg-red-700"
               onClick={handleLogout}
             >
               <FaSignOutAlt className="mr-2" /> Logout
@@ -87,7 +87,7 @@ const MyProfilePage = () => {
       {/* Action Buttons */}
       <div className="mt-8 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
         <button
-          className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow hover:bg-gray-200 dark:hover:bg-gray-700"
+          className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded shadow hover:bg-gray-200 dark:hover:bg-gray-700"
           onClick={() => navigate("/my-campaigns")}
         >
           <FaFolderOpen className="text-teal-500 text-3xl mr-4" />
@@ -96,7 +96,7 @@ const MyProfilePage = () => {
           </span>
         </button>
         <button
-          className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow hover:bg-gray-200 dark:hover:bg-gray-700"
+          className="flex items-center justify-center px-4 py-6 bg-gray-50 dark:bg-gray-800 rounded shadow hover:bg-gray-200 dark:hover:bg-gray-700"
           onClick={() => navigate("/my-donations")}
         >
           <FaDonate className="text-teal-500 text-3xl mr-4" />

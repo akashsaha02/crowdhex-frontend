@@ -74,7 +74,7 @@
 
 
 //         {donations.length > 0 ? (
-//           <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+//           <div className="overflow-x-auto bg-white shadow-md rounded">
 //             <table className="min-w-full table-auto border-collapse border border-gray-200">
 //               <thead className="bg-gray-100">
 //                 {table.getHeaderGroups().map((headerGroup) => (
@@ -168,7 +168,7 @@ const MyDonationPage = () => {
             {donations.map((donation) => (
               <div
                 key={donation.id}
-                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border-2 border-gray-600 dark:border-gray-700"
+                className="p-6 bg-white dark:bg-gray-800 rounded shadow-md border-2 border-gray-600 dark:border-gray-700"
               >
                 <h3 className="text-lg font-bold text-teal-600 dark:text-teal-400 mb-2">
                   {donation.campaignTitle}

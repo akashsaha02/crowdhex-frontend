@@ -15,7 +15,7 @@ const Header = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -24,7 +24,7 @@ const Header = () => {
       <NavLink
         to="/campaigns"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -34,7 +34,7 @@ const Header = () => {
         <NavLink
           to="/add-campaign"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -45,7 +45,7 @@ const Header = () => {
         <NavLink
           to="/my-campaigns"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -56,7 +56,7 @@ const Header = () => {
         <NavLink
           to="/my-donations"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -65,9 +65,6 @@ const Header = () => {
       )}
 
       <ThemeToggle />
-      {/* workinng */}
-      {/* <input type="checkbox" className="toggle toggle-accent" onChange={toggleTheme} defaultChecked /> */}
-
     </>
   );
 
@@ -119,7 +116,7 @@ const Header = () => {
             <NavLink
               to={user ? "/profile" : "/register"}
               className={({ isActive }) =>
-                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
                 }`
               }>
               {user ? "My Profile" : "Register"}
@@ -130,7 +127,7 @@ const Header = () => {
             user ? <ProfileTooltip img={user.displayURL} name={user.displayName} email={user.email} /> : <NavLink
               to="/login"
               className={({ isActive }) =>
-                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
                 }`
               }>
               Login

@@ -46,7 +46,7 @@ const CarouselComp = () => {
         dynamicHeight={false}
         swipeScrollTolerance={5} // Allow vertical scroll tolerance
         preventMovementUntilSwipeScrollTolerance
-        className="max-w-7xl mx-auto rounded-lg"
+        className="max-w-7xl mx-auto rounded"
       >
         {banners.map((banner, index) => (
           <div key={index} className="relative">
@@ -63,13 +63,13 @@ const CarouselComp = () => {
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-start">
                     <Link
                       to={banner.linkPrimary.path}
-                      className="px-6 py-2 bg-teal-500 hover:bg-teal-400 text-white text-md font-bold rounded-lg shadow-lg transition-all"
+                      className="px-6 py-2 bg-teal-500 hover:bg-teal-400 text-white text-md font-bold rounded shadow-lg transition-all"
                     >
                       {banner.linkPrimary.text}
                     </Link>
                     <Link
                       to={banner.linkSecondary.path}
-                      className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white text-md font-bold rounded-lg shadow-lg transition-all"
+                      className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white text-md font-bold rounded shadow-lg transition-all"
                     >
                       {banner.linkSecondary.text}
                     </Link>
@@ -81,7 +81,7 @@ const CarouselComp = () => {
                 <img
                   src={banner.src}
                   alt={banner.alt}
-                  className="object-cover w-full rounded-lg"
+                  className="object-cover w-full rounded"
                 />
               </div>
             </div>

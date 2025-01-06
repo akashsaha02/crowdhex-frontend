@@ -31,7 +31,7 @@ const UpdateProfilePage = () => {
             </Helmet>
             <form
                 onSubmit={handleUpdateProfile}
-                className="w-full max-w-sm bg-white p-6 shadow-md rounded-lg"
+                className="w-full max-w-sm bg-white p-6 shadow-md rounded"
             >
                 <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">
                     Update Profile

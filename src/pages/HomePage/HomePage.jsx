@@ -14,8 +14,8 @@ const HomePage = () => {
       <Helmet>
         <title>CrowdHex | Home</title>
       </Helmet>
-      <Banner />
-      {/* <CarouselComp /> */}
+      {/* <Banner /> */}
+      <CarouselComp />
       <RunningCampaigns />
       <HowItWorks />
       <OurMission />

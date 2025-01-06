@@ -86,7 +86,7 @@ const CampaignDetailsPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-10 px-4 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+    <div className="max-w-4xl mx-auto my-10 px-4 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
       <Helmet>
         <title>CrowdHex | Campaign Details</title>
       </Helmet>
@@ -98,13 +98,13 @@ const CampaignDetailsPage = () => {
             <img
               src={campaignDetails.image}
               alt={campaignDetails.title}
-              className="w-full rounded-lg mb-4 shadow-md"
+              className="w-full rounded mb-4 shadow-md"
             />
             <h2 className="text-3xl font-semibold">{campaignDetails.title}</h2>
             <p className="text-gray-600 dark:text-gray-300 mt-2">{campaignDetails.description}</p>
 
             {/* Additional Details */}
-            <div className="mt-4 p-4 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-3 items-center gap-2">
+            <div className="mt-4 p-4 rounded shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-3 items-center gap-2">
               <p className="flex items-center md:justify-center gap-2 capitalize">
                 <BiCategory className="text-teal-500 text-lg" />
                 <span className="font-semibold">Category:</span> {campaignDetails.type}
@@ -143,7 +143,7 @@ const CampaignDetailsPage = () => {
             {!isCampaignExpired() && (
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="mt-6 flex items-center justify-center gap-2 px-4 py-4 bg-green-600 dark:bg-green-500 text-white font-bold rounded-lg hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none shadow-md transition-all w-full"
+                className="mt-6 flex items-center justify-center gap-2 px-4 py-4 bg-green-600 dark:bg-green-500 text-white font-bold rounded hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none shadow-md transition-all w-full"
               >
                 <FaDonate className="text-lg" />
                 Donate

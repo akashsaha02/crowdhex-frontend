@@ -12,11 +12,12 @@ const CampaignCard = ({ campaigns }) => {
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-center items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 justify-center items-center">
             {campaigns.map((campaign) => {
                 const isRunning = checkIfRunning(campaign.deadline);
                 return (
-                    <div
+                    <Link
+                        to={`/campaigns/${campaign._id}`}
                         key={campaign._id}
                         className="relative group max-w-md rounded-xl overflow-hidden shadow-lg transition-transform transform dark:bg-gray-900 bg-white dark:text-gray-100 border border-gray-200 dark:border-gray-700"
                     >
@@ -25,14 +26,14 @@ const CampaignCard = ({ campaigns }) => {
                             <img
                                 src={campaign.image}
                                 alt={campaign.title}
-                                className="w-full h-54 md:h-64 object-cover transition-transform duration-300 group-hover:scale-110 "
+                                className="w-full h-54 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110 "
                             />
 
                             {/* Campaign Status Badge */}
                             <span
-                                className={`absolute top-4 right-4 px-4 py-1 text-xs font-semibold uppercase rounded-full shadow-lg ${isRunning
-                                    ? "bg-green-500 text-white animate-pulse"
-                                    : "bg-red-500 text-white"
+                                className={`absolute top-4 right-4 px-4 py-1 text-xs font-semibold uppercase rounded-full  ${isRunning
+                                    ? "bg-black text-white shadow-2xl shadow-black"
+                                    : "bg-red-600 text-white shadow-2xl shadow-black"
                                     }`}
                             >
                                 {isRunning ? "Running" : "Ended"}
@@ -40,11 +41,11 @@ const CampaignCard = ({ campaigns }) => {
                         </div>
 
                         {/* Details Section */}
-                        <div className="p-6">
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 truncate">
+                        <div className="p-4">
+                            <h3 className="text-md font-bold text-gray-800 dark:text-gray-100 line-clamp-1">
                                 {campaign.title}
                             </h3>
-                            <p className="flex items-center gap-2 font-bold dark:text-white mt-4">
+                            <p className="flex text-sm items-center gap-2 font-bold dark:text-white mt-2">
                                 <AiOutlineDollarCircle className="text-yellow-400 text-lg" />
                                 ${campaign.minDonation} Minimum Donation
                             </p>
@@ -66,12 +67,12 @@ const CampaignCard = ({ campaigns }) => {
                             {/* Learn More Button */}
                             <Link
                                 to={`/campaigns/${campaign._id}`}
-                                className="mt-4 block w-full text-center bg-teal-600 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-teal-700 transition-all duration-300"
+                                className="mt-2 block w-full text-center bg-teal-600 text-white text-sm font-bold py-2 rounded shadow-lg hover:bg-teal-700 transition-all duration-300"
                             >
                                 Learn More
                             </Link>
                         </div>
-                    </div>
+                    </Link>
 
 
                 );

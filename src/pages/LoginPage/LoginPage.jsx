@@ -56,7 +56,7 @@ const LoginPage = () => {
             <Helmet>
                 <title>CrowdHex | Login</title>
             </Helmet>
-            <div className="w-full max-w-md p-8 space-y-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+            <div className="w-full max-w-md p-8 space-y-6 bg-white dark:bg-gray-800 rounded shadow-lg">
                 {user ? (
                     <div className="">
                         <div className="p-4 text-center text-green-600 bg-green-100 rounded-md flex flex-col justify-center items-center gap-2">

@@ -10,7 +10,7 @@ const MyCampaignTable = ({ campaigns, columns }) => {
     <div className="shadow">
       <table
         {...getTableProps()}
-        className="min-w-full bg-white border border-gray-500 rounded-lg overflow-scroll"
+        className="min-w-full bg-white border border-gray-500 rounded overflow-scroll"
       >
         <thead>
           {headerGroups.map((headerGroup) => (

@@ -34,10 +34,10 @@ const Banner = () => {
                         dreamers with supporters to make a difference.
                     </p>
                     <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-start">
-                        <Link to={'/add-campaign'} className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
+                        <Link to={'/add-campaign'} className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white text-lg font-medium rounded shadow-lg transition-all">
                             Start a Campaign
                         </Link>
-                        <Link to={'/campaigns'} className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white text-lg font-medium rounded-lg shadow-lg transition-all">
+                        <Link to={'/campaigns'} className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white text-lg font-medium rounded shadow-lg transition-all">
                             Explore Projects
                         </Link>
                     </div>

@@ -40,12 +40,12 @@ const NewsletterFAQ = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email address"
-                                className="w-full sm:flex-1 px-6 py-3 text-gray-800 bg-white dark:bg-gray-900 rounded-lg focus:ring-4 focus:ring-white focus:outline-none"
+                                className="w-full sm:flex-1 px-6 py-3 text-gray-800 bg-white dark:bg-gray-900 rounded focus:ring-4 focus:ring-white focus:outline-none"
                                 required
                             />
                             <button
                                 type="submit"
-                                className="px-8 py-3 text-lg font-semibold bg-teal-900 dark:bg-teal-400 hover:bg-teal-800 dark:hover:bg-teal-500 rounded-lg shadow-lg dark:text-black transition-transform transform focus:ring-4 focus:ring-teal-300 focus:outline-none"
+                                className="px-8 py-3 text-lg font-semibold bg-teal-900 dark:bg-teal-400 hover:bg-teal-800 dark:hover:bg-teal-500 rounded shadow-lg dark:text-black transition-transform transform focus:ring-4 focus:ring-teal-300 focus:outline-none"
                             >
                                 Subscribe
                             </button>
@@ -62,7 +62,7 @@ const NewsletterFAQ = () => {
                         {faqs.map((faq, index) => (
                             <div
                                 key={index}
-                                className="p-6 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg"
+                                className="p-6 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded shadow-lg"
                             >
                                 <button
                                     onClick={() => toggleFAQ(index)}

@@ -48,7 +48,7 @@ const AddCampaignPage = () => {
 
       if (response.status === 200) {
         toast.success("Campaign added successfully!");
-        navigate("/campaigns");
+        navigate("/my-campaigns");
       } else {
         throw new Error("Failed to add campaign.");
       }
@@ -63,7 +63,7 @@ const AddCampaignPage = () => {
       <Helmet>
         <title>CrowdHex | Add Campaign</title>
       </Helmet>
-      <div className="max-w-4xl mx-auto mt-10 px-4 py-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+      <div className="max-w-4xl mx-auto mt-10 px-4 py-6 bg-white dark:bg-gray-800 rounded shadow-md">
         <SectionTitle
           title="Add New Campaign"
           subtitle={`Welcome, ${user.displayName}!`}
@@ -78,7 +78,7 @@ const AddCampaignPage = () => {
               value={formData.image}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
               placeholder="Enter image URL"
             />
           </div>
@@ -92,7 +92,7 @@ const AddCampaignPage = () => {
               value={formData.title}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
               placeholder="Enter campaign title"
             />
           </div>
@@ -105,7 +105,7 @@ const AddCampaignPage = () => {
               value={formData.type}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
             >
               <option value="personal issue">Personal Issue</option>
               <option value="startup">Startup</option>
@@ -123,7 +123,7 @@ const AddCampaignPage = () => {
               onChange={handleChange}
               required
               rows="4"
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
               placeholder="Enter campaign description"
             />
           </div>
@@ -137,7 +137,7 @@ const AddCampaignPage = () => {
               value={formData.minDonation}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
               placeholder="Enter minimum donation amount"
             />
           </div>
@@ -151,7 +151,7 @@ const AddCampaignPage = () => {
               value={formData.deadline}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
             />
           </div>
 
@@ -162,7 +162,7 @@ const AddCampaignPage = () => {
               type="email"
               value={user.email}
               readOnly
-              className="w-full px-3 py-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400"
+              className="w-full px-3 py-2 border rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400"
             />
           </div>
 
@@ -173,14 +173,14 @@ const AddCampaignPage = () => {
               type="text"
               value={user.displayName}
               readOnly
-              className="w-full px-3 py-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400"
+              className="w-full px-3 py-2 border rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400"
             />
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-teal-600 dark:bg-teal-500 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-teal-600 focus:outline-none"
+            className="w-full py-2 px-4 bg-teal-600 dark:bg-teal-500 text-white font-bold rounded hover:bg-blue-700 dark:hover:bg-teal-600 focus:outline-none"
           >
             Add Campaign
           </button>
