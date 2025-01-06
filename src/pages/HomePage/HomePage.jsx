@@ -5,6 +5,7 @@ import OurMission from "../../components/OurMission/OurMission";
 import NewsletterFAQ from "../../components/NewsletterFAQ/NewsletterFAQ";
 import CarouselComp from "../../components/CarouselComp/CarouselComp";
 import { Helmet } from 'react-helmet';
+import Categories from "../../components/Categories/Categories";
 
 
 const HomePage = () => {
@@ -16,6 +17,7 @@ const HomePage = () => {
       </Helmet>
       {/* <Banner /> */}
       <CarouselComp />
+      <Categories/>
       <RunningCampaigns />
       <HowItWorks />
       <OurMission />

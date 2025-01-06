@@ -1,30 +1,14 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import CampaignCard from "../CampaignCard/CampaignCard";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { Link } from "react-router-dom";
-
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-
-const RunningCampaigns = () => { // Default limit to 6
-    const [campaigns, setCampaigns] = useState([]);
+import useCampaign from "../../providers/useCampaign";
 
 
-    useEffect(() => {
-        const fetchCampaigns = async () => {
-            try {
-                const response = await axios.get(`${apiBaseUrl}/running`);
-                setCampaigns(response.data);
-            } catch (error) {
-                console.error("Error fetching campaigns:", error);
-            }
-        };
+const RunningCampaigns = () => {
 
-        fetchCampaigns();
-    }, []);
-
+    const [campaigns, loading, error] = useCampaign("running");
     return (
-        <section className="bg-gray-100 dark:bg-gray-800">
+        <section className="bg-gray-50 dark:bg-gray-800">
             <div className="py-10 md:py-16 max-w-7xl mx-auto px-4">
                 <SectionTitle title="Running Campaigns" subtitle="Explore and support the active campaigns." />
                 <div className="flex justify-center items-center" >
