@@ -24,6 +24,7 @@ const HomePage = () => {
       <OurMission />
       <Testimonial/>
       <NewsletterFAQ />
+      {/* TODO:Blog Section */}
     </div>
   );
 };

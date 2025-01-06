@@ -5,7 +5,12 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-10 border-t-2 border-t-slate-950 dark:border-t-slate-600">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 lg:px-12">
         <div>
-          <h2 className="text-2xl font-bold text-teal-400 mb-4">CrowdHex</h2>
+          <div className="flex items-center gap-2 mb-4">
+            <img
+            className="block w-10 h-10 rounded-full bg-gray-200"
+              src="/logo.png" />
+            <h2 className="text-2xl font-bold text-teal-400">CrowdHex</h2>
+          </div>
           <p className="text-gray-400 mb-6 text-justify">CrowdHex connects passionate individuals with meaningful causes, empowering education, healthcare, and startups. Together, we can make a lasting impact.
           </p>
           <div className="flex space-x-4">
@@ -83,6 +88,8 @@ const Footer = () => {
               Subscribe
             </button>
           </form>
+
+          
         </div>
       </div>
 
