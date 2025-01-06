@@ -86,69 +86,73 @@ const CampaignDetailsPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-10 px-4 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+    <div className="max-w-[1600px] mx-auto my-10 px-4 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
       <Helmet>
         <title>CrowdHex | Campaign Details</title>
       </Helmet>
       <SectionTitle title="Campaign Details" subtitle="View the details of the selected campaign." />
       <div>
         {campaignDetails ? (
-          <div className="mt-4 md:mt-6">
+          <div className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Campaign Details */}
-            <img
-              src={campaignDetails.image}
-              alt={campaignDetails.title}
-              className="w-full rounded mb-4 shadow-md"
-            />
-            <h2 className="text-3xl font-semibold">{campaignDetails.title}</h2>
-            <p className="text-gray-600 dark:text-gray-300 mt-2">{campaignDetails.description}</p>
-
-            {/* Additional Details */}
-            <div className="mt-4 p-4 rounded shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-3 items-center gap-2">
-              <p className="flex items-center md:justify-center gap-2 capitalize">
-                <BiCategory className="text-teal-500 text-lg" />
-                <span className="font-semibold">Category:</span> {campaignDetails.type}
-              </p>
-              <p className="flex items-center md:justify-center gap-2">
-                <AiOutlineDollarCircle className="text-teal-500 text-lg" />
-                <span className="font-semibold">Minimum Donation:</span> ${campaignDetails.minDonation}
-              </p>
-              <p className="flex items-center md:justify-center gap-2">
-                <AiOutlineCalendar className="text-teal-500 text-lg" />
-                <span className="font-semibold">Deadline:</span>{" "}
-                {new Date(campaignDetails.deadline).toLocaleDateString()}
-              </p>
+            <div className="">
+              <img
+                src={campaignDetails.image}
+                alt={campaignDetails.title}
+                className="w-full rounded mb-4 shadow-md object-cover"
+              />
             </div>
+            <div className="">
+              <h2 className="text-3xl font-semibold">{campaignDetails.title}</h2>
+              <p className="text-gray-600 dark:text-gray-300 mt-2">{campaignDetails.description}</p>
 
-            {/* Created By */}
-            <div className="flex flex-col md:flex-row justify-between gap-3 mt-6">
-              <p className="flex items-center gap-2">
-                <FaUserCircle className="text-teal-500 text-lg" />
-                Created by: <strong>{campaignDetails.userName}</strong>
-              </p>
-              <p className="flex items-center gap-2">
-                <FaEnvelope className="text-teal-500 text-lg" />
-                Email: <strong>{campaignDetails.userEmail}</strong>
-              </p>
+              {/* Additional Details */}
+              <div className="mt-4 p-4 rounded shadow-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 grid grid-cols-1 md:grid-cols-3 items-center gap-2">
+                <p className="flex items-center md:justify-center gap-2 capitalize">
+                  <BiCategory className="text-teal-500 text-lg" />
+                  <span className="font-semibold">Category:</span> {campaignDetails.type}
+                </p>
+                <p className="flex items-center md:justify-center gap-2">
+                  <AiOutlineDollarCircle className="text-teal-500 text-lg" />
+                  <span className="font-semibold">Minimum Donation:</span> ${campaignDetails.minDonation}
+                </p>
+                <p className="flex items-center md:justify-center gap-2">
+                  <AiOutlineCalendar className="text-teal-500 text-lg" />
+                  <span className="font-semibold">Deadline:</span>{" "}
+                  {new Date(campaignDetails.deadline).toLocaleDateString()}
+                </p>
+              </div>
+
+              {/* Created By */}
+              <div className="flex flex-col md:flex-row justify-between gap-3 mt-6">
+                <p className="flex items-center gap-2">
+                  <FaUserCircle className="text-teal-500 text-lg" />
+                  Created by: <strong>{campaignDetails.userName}</strong>
+                </p>
+                <p className="flex items-center gap-2">
+                  <FaEnvelope className="text-teal-500 text-lg" />
+                  Email: <strong>{campaignDetails.userEmail}</strong>
+                </p>
+              </div>
+
+              {/* Show if the campaign is expired */}
+              {isCampaignExpired() && (
+                <p className="text-red-600 dark:text-red-400 mt-4 font-semibold">
+                  This campaign has ended and no longer accepts donations.
+                </p>
+              )}
+
+              {/* Donate Button */}
+              {!isCampaignExpired() && (
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="mt-6 flex items-center justify-center gap-2 px-4 py-4 bg-green-600 dark:bg-green-500 text-white font-bold rounded hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none shadow-md transition-all w-full"
+                >
+                  <FaDonate className="text-lg" />
+                  Donate
+                </button>
+              )}
             </div>
-
-            {/* Show if the campaign is expired */}
-            {isCampaignExpired() && (
-              <p className="text-red-600 dark:text-red-400 mt-4 font-semibold">
-                This campaign has ended and no longer accepts donations.
-              </p>
-            )}
-
-            {/* Donate Button */}
-            {!isCampaignExpired() && (
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="mt-6 flex items-center justify-center gap-2 px-4 py-4 bg-green-600 dark:bg-green-500 text-white font-bold rounded hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none shadow-md transition-all w-full"
-              >
-                <FaDonate className="text-lg" />
-                Donate
-              </button>
-            )}
           </div>
         ) : (
           <div className="flex justify-center items-center max-w-4xl">
@@ -194,3 +198,5 @@ const CampaignDetailsPage = () => {
 };
 
 export default CampaignDetailsPage;
+
+

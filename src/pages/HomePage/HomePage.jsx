@@ -6,6 +6,7 @@ import NewsletterFAQ from "../../components/NewsletterFAQ/NewsletterFAQ";
 import CarouselComp from "../../components/CarouselComp/CarouselComp";
 import { Helmet } from 'react-helmet';
 import Categories from "../../components/Categories/Categories";
+import Testimonial from "../../components/Testimoneal/Testimoneal";
 
 
 const HomePage = () => {
@@ -21,6 +22,7 @@ const HomePage = () => {
       <RunningCampaigns />
       <HowItWorks />
       <OurMission />
+      <Testimonial/>
       <NewsletterFAQ />
     </div>
   );

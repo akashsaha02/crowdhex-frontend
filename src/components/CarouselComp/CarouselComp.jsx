@@ -34,7 +34,7 @@ const CarouselComp = () => {
   ];
 
   return (
-    <div className="my-10">
+    <div className="my-10 ">
       <Carousel
         autoPlay
         infiniteLoop
@@ -46,7 +46,7 @@ const CarouselComp = () => {
         dynamicHeight={false}
         swipeScrollTolerance={5} // Allow vertical scroll tolerance
         preventMovementUntilSwipeScrollTolerance
-        className="max-w-7xl mx-auto rounded"
+        className="max-w-7xl px-4 mx-auto rounded "
       >
         {banners.map((banner, index) => (
           <div key={index} className="relative">
