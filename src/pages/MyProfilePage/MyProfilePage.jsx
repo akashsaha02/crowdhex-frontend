@@ -43,7 +43,7 @@ const MyProfilePage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-white dark:bg-gray-950 justify-center py-8 bg-cover bg-top bg-no-repeat px-4"
+    <div className="flex flex-col items-center bg-white dark:bg-gray-950 justify-center py-8 bg-cover bg-top bg-no-repeat px-4 min-h-screen"
     style={{ backgroundImage: `url(${bgImg})` }}
     >
       <Helmet>

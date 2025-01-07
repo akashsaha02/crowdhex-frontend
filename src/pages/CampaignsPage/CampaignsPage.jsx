@@ -62,7 +62,9 @@ const CampaignsPage = () => {
   }, [campaigns, filteredCampaigns, activeTab]);
 
   if (loading) {
-    return <div>Loading campaigns...</div>;
+    return <div className="min-h-screen flex items-center justify-center">
+      <span className="loading loading-dots loading-lg"></span>
+    </div>;
   }
 
   return (
