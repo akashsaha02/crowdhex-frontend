@@ -35,7 +35,7 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20">
+    <div className="max-w-7xl mx-auto my-20">
       <SectionTitle title="Testimonials" subtitle="What our users say" />
 
       <div className="relative overflow-hidden w-full mt-6">
