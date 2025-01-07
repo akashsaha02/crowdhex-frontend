@@ -1,60 +1,72 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/autoplay';
-import { Rating } from '@smastrom/react-rating';
-import '@smastrom/react-rating/style.css';
+import { motion } from "framer-motion";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 import { FaQuoteLeft } from "react-icons/fa";
-import SectionTitle from './../SectionTitle/SectionTitle';
+import SectionTitle from "./../SectionTitle/SectionTitle";
 
 const Testimonial = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get('/reviews.json').then((response) => {
-      setReviews(response.data);
-    }).catch((error) => {
-      console.log(error);
-    });
+    axios
+      .get("/reviews.json")
+      .then((response) => {
+        setReviews(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
-  return (
-    <div className="max-w-7xl mx-auto px-4 my-20">
-      <SectionTitle
-        title="Testimonials"
-        subtitle="What our users say"
-      />
+  const marqueeVariants = {
+    animate: {
+      x: ["0%", "-100%"],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 30, // Speed of the scroll
+          ease: "linear",
+        },
+      },
+    },
+  };
 
-      <Swiper
-        navigation={true}
-        modules={[Navigation, Autoplay]}  // Make sure Autoplay is correctly passed here
-        spaceBetween={20}
-        slidesPerView={1}
-        autoplay={{
-          delay: 3000,  // Set autoplay delay to 3 seconds
-          disableOnInteraction: false,  // Keep autoplay running even after interaction
-        }}
-        loop={true}  // Ensures infinite loop of slides
-        className="mySwiper"
-      >
-        {reviews.map((review, index) => (
-          <SwiperSlide key={index} className="p-4 text-center">
-            <div className="flex flex-col items-center justify-center gap-4">
-              <Rating
-                style={{ maxWidth: 100 }}
-                value={review.rating}
-                readOnly={true}
-              />
-              <FaQuoteLeft size={60} />
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20">
+      <SectionTitle title="Testimonials" subtitle="What our users say" />
+
+      <div className="relative overflow-hidden w-full mt-6">
+        <motion.div
+          className="flex gap-4 md:gap-6 w-screen"
+          variants={marqueeVariants}
+          animate="animate"
+        >
+          {reviews.concat(reviews).map((review, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-64 sm:w-72 md:w-80 p-4 text-center bg-teal-100 dark:bg-gray-800 shadow-md rounded-lg"
+            >
+              <div className="flex flex-col items-center justify-center gap-4">
+                <Rating
+                  style={{ maxWidth: 80 }}
+                  value={review.rating}
+                  readOnly={true}
+                />
+                <FaQuoteLeft size={30} className="text-gray-400" />
+              </div>
+              <p className="text-gray-600 my-4 text-sm sm:text-base lg:text-lg line-clamp-3">
+                {review.details}
+              </p>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-yolo">
+                {review.name}
+              </h3>
             </div>
-            <p className="text-gray-600 my-4 max-w-4xl mx-auto">{review.details}</p>
-            <h3 className="text-2xl font-semibold text-yolo">{review.name}</h3>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 };
