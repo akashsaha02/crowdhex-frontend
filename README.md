@@ -64,8 +64,8 @@
 
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/akashsaha02/crowdhex.git  
-   cd crowdhex  
+   git clone https://github.com/akashsaha02/crowdhex-frontend.git  
+   cd crowdhex-frontend  
    ```  
 
 2. Install dependencies:  
