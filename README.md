@@ -1,9 +1,11 @@
+
 # CrowdHex  
 
 [CrowdHex Live Site](https://crowdhex.web.app/)  
 
 **CrowdHex** is an intuitive and powerful crowdfunding platform designed to empower individuals and organizations. By connecting campaign creators with supporters, CrowdHex helps bring innovative ideas, personal goals, and community projects to life. With user-friendly features, a modern aesthetic, and a secure environment, CrowdHex ensures an exceptional experience for both campaigners and donors.
 
+![alt text](./src/assets/github-banner.png)
 ---
 
 ## Table of Contents  
