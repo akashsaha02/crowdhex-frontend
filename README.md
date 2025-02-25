@@ -48,24 +48,6 @@
 ### 6. **Real-time Notifications**  
 - Instant feedback with toast notifications for key user actions such as logging in, logging out, creating campaigns, and updating profiles.  
 
-### 7. **Dashboard and Analytics**  
-- Personalized dashboard to manage campaigns and track contributions.  
-- Visual analytics for campaign performance, including funds raised, supporters, and progress towards goals.  
-
-### 8. **Secure Payments**  
-- Integrated payment gateway to facilitate secure and reliable transactions.  
-- Ensures user data and payment details are encrypted and protected.  
-
-### 9. **FAQ Section**  
-- Dedicated FAQ page with answers to common questions, ensuring clarity for users.  
-- Expandable and interactive design for easy navigation.  
-
-### 10. **Newsletter Subscription**  
-- Stay updated with the latest news and updates by subscribing to the CrowdHex newsletter.  
-- Designed with accessibility in mind, ensuring users can subscribe hassle-free.  
-
----
-
 ## Tech Stack  
 
 - **Frontend**: React.js, Tailwind CSS, DaisyUI
